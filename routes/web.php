@@ -18,10 +18,10 @@ use App\Http\Controllers\{
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Route::group(['middleware' => 'auth'],function(){
-//     Route::get( '/dashboard', [App\Http\Controllers\DashboardController::class,'index']);
-//     Route::get( '/member', [App\Http\Controllers\MemberController::class,'index']);
-// });
+Route::group(['middleware' => 'auth'],function(){
+    Route::get( '/dashboard', [App\Http\Controllers\DashboardController::class,'index']);
+    Route::get( '/member', [App\Http\Controllers\MemberController::class,'index']);
+});
 
 
 
