@@ -3,6 +3,7 @@ use App\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
+    MemberController,
 };
 
 /*
@@ -15,12 +16,15 @@ use App\Http\Controllers\{
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function(){
+    return view('layouts.landingpage');
+});
+
 Auth::routes();
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'],function(){
-    Route::get( '/dashboard', [App\Http\Controllers\DashboardController::class,'index']);
-    Route::get( '/member', [App\Http\Controllers\MemberController::class,'index']);
+    Route::get( '/member', [MemberController::class,'index']);
 });
 
 
