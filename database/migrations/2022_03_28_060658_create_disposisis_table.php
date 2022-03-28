@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDisposisisSuratsTable extends Migration
+class CreateDisposisisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDisposisisSuratsTable extends Migration
      */
     public function up()
     {
-        Schema::create('disposisis_surats', function (Blueprint $table) {
+        Schema::create('disposisis', function (Blueprint $table) {
             $table->id();
             $table->string('asal_surat');
             $table->date('tanggal_diterima');
@@ -33,6 +33,6 @@ class CreateDisposisisSuratsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disposisis_surats');
+        Schema::dropIfExists('disposisis');
     }
 }
