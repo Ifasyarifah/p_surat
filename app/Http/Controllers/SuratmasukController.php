@@ -59,10 +59,18 @@ class SuratmasukController extends Controller
         $image->storeAs('public/image', $image->hashName());
 
         $data = Suratmasuk::create([
-            'name_Suratmasuk'  => $request->name_Suratmasuk,
-            'email'          => $request->email,
-            'logo'           => $image->hashName(),
-            'website_url'    => $request->website_url,
+                'id'                    => $request->id,
+                'nomor_suratM'          => $request->nomor_suratM,
+                'perihal_m'             => $request->perihal_m,
+                'nama_penerima'         => $request->nama_penerima,
+                'hari_m'                => $request->hari_m,
+                'tanggal_surat'         => $request->tanggal_surat,
+                'tempat'                => $request->tempat,
+                'acara'                 => $request->acara,
+                'pakaian'               => $request->pakaian,
+                'catatan'               => $request->catatan,
+                'file'                  => $request->file,
+                
             
         ]);
         if($data){
