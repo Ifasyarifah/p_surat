@@ -41,7 +41,7 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
-        <h1><a href="index.html">Lumia</a></h1>
+        <h1><a href="index.html">Komisi Informasi Kab.Sumenep</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="{{ asset('') }}landingpage/assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -71,9 +71,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container text-center text-md-left" data-aos="fade-up">
-      <h1>Welcome to <span>Lumia</span></h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <h1>Welcome to <span>KI Website</span></h1>
+      <img src="{{ ('landingpage/assets/img/garuda.png') }}" alt="Girl in a jacket" width="100" height="100">
+      <a href="{{ ('dashboard') }}" class="btn-get-started scrollto">Login Here</a>
     </div>
   </section><!-- End Hero -->
 
