@@ -36,17 +36,17 @@
                       @foreach($datas as $data)
                         <tr>
                           <th scope="row">{{$loop->iteration}}</th>
-                          <td>{{ $surats_masuks->id }}</td>
-                          <td>{{ $surats_masuks->nomor_suratM }}</td>
-                          <td>{{ $surats_masuks->Perihal_m }}</td>
-                          <td>{{ $surats_masuks->nama_penerima }}</td>
-                          <td>{{ $surats_masuks->hari_m }}</td>
-                          <td>{{ $surats_masuks->tanggal_surat }}</td>
-                          <td>{{ $surats_masuks->tempat }}</td>
-                          <td>{{ $surats_masuks->acara }}</td>
-                          <td>{{ $surats_masuks->pakaian }}</td>
-                          <td>{{ $surats_masuks->catatan }}</td>
-                          <td>{{ $surats_masuks->file }}</td>
+                          <td>{{ $data->id }}</td>
+                          <td>{{ $data->nomor_suratM }}</td>
+                          <td>{{ $data->Perihal_m }}</td>
+                          <td>{{ $data->nama_penerima }}</td>
+                          <td>{{ $data->hari_m }}</td>
+                          <td>{{ $data->tanggal_surat }}</td>
+                          <td>{{ $data->tempat }}</td>
+                          <td>{{ $data->acara }}</td>
+                          <td>{{ $data->pakaian }}</td>
+                          <td>{{ $data->catatan }}</td>
+                          <td>{{ $data->file }}</td>
                           <td class="text-center">
                               <img src="{{ Storage::url('public/file/') .$data->file }} " class="rounded" style="width: 150px">
                           </td>

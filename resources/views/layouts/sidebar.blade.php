@@ -44,7 +44,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>logout</p>
                 </a>
-                <form id="formLogout" action="{{ route('logout') }}" method="POST">@csrf</             
+                <form id="formLogout" action="{{ route('logout') }}" method="POST">@csrf</form>             
               </li>
           <li class="nav-item">
             <a href="#" class="nav-link">

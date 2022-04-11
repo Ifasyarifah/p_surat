@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\Suratmasuk;
+use App\Models\suratmasuk;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +19,7 @@ class SuratmasukController extends Controller
      */
     public function index()
     {
-        $datas = Suratmasuk::all();
+        $datas = suratmasuk::all();
         return view('surat_masuk.index',compact('datas'));
     }
 
@@ -58,8 +58,7 @@ class SuratmasukController extends Controller
         $image = $request->file('logo');
         $image->storeAs('public/image', $image->hashName());
 
-        $data = Suratmasuk::create([
-                'id'                    => $request->id,
+        $data = suratmasuk::create([
                 'nomor_suratM'          => $request->nomor_suratM,
                 'perihal_m'             => $request->perihal_m,
                 'nama_penerima'         => $request->nama_penerima,
