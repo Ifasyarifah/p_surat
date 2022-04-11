@@ -73,7 +73,11 @@
     <div class="container text-center text-md-left" data-aos="fade-up">
       <h1>Welcome to <span>KI Website</span></h1>
       <img src="{{ ('landingpage/assets/img/garuda.png') }}" alt="Girl in a jacket" width="100" height="100">
-      <a href="{{ ('dashboard') }}" class="btn-get-started scrollto">Login Here</a>
+      @auth
+        <a href="{{ route('home') }}" class="btn-get-started scrollto">Go to Dashboard</a>
+      @else
+      <a href="{{ route('login') }}" class="btn-get-started scrollto">Login Here</a>
+      @endauth
     </div>
   </section><!-- End Hero -->
 
