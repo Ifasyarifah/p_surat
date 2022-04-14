@@ -17,7 +17,7 @@
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                      <th>ID</th>
+                      <th>#</th>
                       <th>Nomor Surat</th>
                       <th>Perihal</th>
                       <th>Nama Penerima</th>
@@ -29,14 +29,13 @@
                       <th>Catatan</th>
                       <th>File</th>
                       <th>Status</th>
-                      <th class="text-right">Actions</th>
+                      <th class="text-center">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach($datas as $data)
                         <tr>
                           <th scope="row">{{$loop->iteration}}</th>
-                          <td>{{ $data->id }}</td>
                           <td>{{ $data->nomor_suratM }}</td>
                           <td>{{ $data->Perihal_m }}</td>
                           <td>{{ $data->nama_penerima }}</td>
@@ -46,21 +45,20 @@
                           <td>{{ $data->acara }}</td>
                           <td>{{ $data->pakaian }}</td>
                           <td>{{ $data->catatan }}</td>
-                          <td>{{ $data->file }}</td>
                           <td class="text-center">
-                              <img src="{{ Storage::url('public/file/') .$data->file }} " class="rounded" style="width: 150px">
+                              <a href="{{ asset('storage/file/surat-masuk/'.$data->file)}}">File</a>
                           </td>
-                          <td>{{$data->website_url}}</td>
+                          <td>{{$data->status}}</td>
                           <td class="text-center col-3">
                             <a href="{{route('surat_masuk.edit',[$data->id])}}" type="button" class="btn btn-primary btn-sm">
-                              <span class="fa fa-edit"> Edit</span>
+                              <span class="fa fa-edit"></span>
                             </a>
                             <form action="{{ route('surat_masuk.destroy', [$data->id]) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class=" btn btn-danger btn-sm" onclick= "return confirm('Apakah anda ingin menghapus item.?'); event.preventDefault();
                                 document.getElementById('delete-item').submit();">
-                                <span class="fa fa-trash"> Delete</span>
+                                <span class="fa fa-trash"></span>
                                 </button>
                             </form>
                           </td>

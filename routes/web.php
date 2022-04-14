@@ -1,11 +1,12 @@
 <?php
-use App\Http\Controllers\CrudController;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{
-    HomeController,
-    MemberController,
-    SuratmasukController,
-};
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MemberControlle;
+use App\Http\Controllers\SuratmasukController;
+use App\Http\Controllers\SuratkeluarController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::middleware(['auth'])->group(function() {
     Route::get('surat_masuk/restore/{id}',[SuratmasukController::class, 'restore'])->name('surat_masuk.restore');
     Route::get('surat_masuk/restore-all', [SuratmasukController::class, 'restoreAll'])->name('surat_masuk.restoreAll');
     Route::get('surat_masuk/delete-all',  [SuratmasukController::class, 'deleteAll'])->name('surat_masuk.deleteAll');
+
+    Route::resource('surat_keluar', SuratkeluarController::class);
+    
 });
 
 

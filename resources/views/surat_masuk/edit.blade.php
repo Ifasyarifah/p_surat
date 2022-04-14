@@ -22,8 +22,6 @@
             z-index: 2;
         }
     </style>
-    {{-- message --}}
-    {!! Toastr::message() !!}
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="page-header">
@@ -40,7 +38,16 @@
                         <div class="row formtype">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Nomor Surat</label>
+                                    <label>ID</label>
+                                    <input class="form-control" type="text" name="id" value="{{ $editsuratM->id }}">
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row formtype">
+                                     <div class="col-md-4">
+                                          <div class="form-group">
+                                                <label>Nomor Surat</label>
                                     <input class="form-control" type="text" name="nomor_suratM" value="{{ $editsuratM->nomor_suratM }}">
                                 </div>
                             </div>

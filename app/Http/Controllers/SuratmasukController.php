@@ -42,8 +42,9 @@ class SuratmasukController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'id'            => 'required|string|max:255',
             'nomor_suratM'   => 'required|string|max:255',
-            'periha_m'     => 'required|string|max:255',
+            'perihal_m'     => 'required|string|max:255',
             'nama_penerima' => 'required|string|max:255',
             'hari_m' => 'required|string|max:255',
             'tanggal_surat' => 'required|string|max:255',
@@ -51,14 +52,16 @@ class SuratmasukController extends Controller
             'acara' => 'required|string|max:255',
             'pakaian'      => 'required|string|max:255',
             'catatan'  => 'required|string|max:255',
-            'fileupload' => 'required|file',
-       
+            'file' => 'required|file',
+            
         ]);
+
         //upload image
-        $image = $request->file('logo');
-        $image->storeAs('public/image', $image->hashName());
+        $file = $request->file('file');
+        $file->storeAs('public/file/surat-masuk', $file->hashName());
 
         $data = suratmasuk::create([
+                'id'                    => $request->id,
                 'nomor_suratM'          => $request->nomor_suratM,
                 'perihal_m'             => $request->perihal_m,
                 'nama_penerima'         => $request->nama_penerima,
@@ -68,7 +71,8 @@ class SuratmasukController extends Controller
                 'acara'                 => $request->acara,
                 'pakaian'               => $request->pakaian,
                 'catatan'               => $request->catatan,
-                'file'                  => $request->file,
+                'file'                  => $file->hashName(),
+                'status'                => $request->status,
                 
             
         ]);
@@ -96,10 +100,10 @@ class SuratmasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(suratmasuk $id)
     {
-        $data = Suratmasuk::findOrFail($id);
-        return view('surat_masuk.edit',compact('data'))->with(['success' => 'Data Berhasil Disimpan!']);
+        $datas = suratmasuk::all();
+        return view('surat_masuk.edit',compact('datas'));
     }
 
     /**
@@ -114,6 +118,7 @@ class SuratmasukController extends Controller
         $Suratmasuks = Suratmasuk::findOrFail($id); //mencari user berdasarkan id Suratmasuk
         // dd($Suratmasuks);
         $validated = $request->validate([
+            'id'   => 'required|string|max:255',
             'nomor_suratM'   => 'required|string|max:255',
             'periha_m'     => 'required|string|max:255',
             'nama_penerima' => 'required|string|max:255',
@@ -124,13 +129,13 @@ class SuratmasukController extends Controller
             'pakaian'      => 'required|string|max:255',
             'catatan'  => 'required|string|max:255',
             'fileupload' => 'required|file',
+            'status'  => 'required|string|max:255',
        
         ]);
 
         if($request->file('file') == "") {
 
             $Suratmasuks->update([
-                'id'                    => $request->id,
                 'nomor_suratM'          => $request->nomor_suratM,
                 'perihal_m'             => $request->perihal_m,
                 'nama_penerima'         => $request->nama_penerima,
@@ -141,6 +146,7 @@ class SuratmasukController extends Controller
                 'pakaian'               => $request->pakaian,
                 'catatan'               => $request->catatan,
                 'file'                  => $request->file,
+                'status'                => $request->status,
                 
             ]);
     
@@ -165,6 +171,7 @@ class SuratmasukController extends Controller
                 'pakaian'               => $request->pakaian,
                 'catatan'               => $request->catatan,
                 'file'                  => $request->file,
+                'status'                => $request->status,
                 
             ]);
     

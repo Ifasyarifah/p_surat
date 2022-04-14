@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class suratkeluar extends Model
 {
-    use HasFactory;
+    protected $table = "suratkeluars";
+    protected $fillable = ['nomor_suratK', 'perihal_k', 'nama_pemohon', 'tanggal_suratK', 'tempat', 'agenda', 'catatan', 'TTD'];
 }
