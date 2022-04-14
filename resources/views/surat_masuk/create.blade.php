@@ -49,9 +49,9 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Tanggal Surat Masuk</label>
+                                    <label>Tanggal/Waktu</label>
                                     <div class="cal-icon">
-                                        <input type="date" class="form-control datetimepicker @error('tanggal_surat') is-invalid @enderror" name="tanggal_surat" value="{{ old('tanggal_surat') }}">
+                                        <input type="datetime-local" class="form-control datetimepicker @error('tanggal_surat') is-invalid @enderror" name="tanggal_surat" value="{{ old('tanggal_surat') }}">
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary buttonedit1">Create Surat Masuk</button>
+                <button type="submit" class="btn btn-success btn-sm">Create Surat Masuk</button>
             </form>
         </div>
     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '| surat_masuk')
+@section('title', 'Halaman Surat Masuk')
 @section('content') 
 <div class="container">
   <div class="content mt-4">
@@ -9,7 +9,8 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-                <strong class="card-title">Data Table</strong><br>
+                <strong class="card-title">Data Table</strong>
+                <br></br>
                 <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Create</a>
                 <a href="{{route('surat_masuk.trash')}}" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-shopping-cart"></i> Restore</a>
             </div>
@@ -22,7 +23,7 @@
                       <th>Perihal</th>
                       <th>Nama Penerima</th>
                       <th>Hari</th>
-                      <th>Tanggal Surat</th>
+                      <th>Tanggal/Waktu</th>
                       <th>Tempat</th>
                       <th>Acara</th>
                       <th>Pakaian</th>
@@ -50,9 +51,6 @@
                           </td>
                           <td>{{$data->status}}</td>
                           <td class="text-center col-3">
-                            <a href="{{route('surat_masuk.edit',[$data->id])}}" type="button" class="btn btn-primary btn-sm">
-                              <span class="fa fa-edit"></span>
-                            </a>
                             <form action="{{ route('surat_masuk.destroy', [$data->id]) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')

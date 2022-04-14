@@ -19,7 +19,7 @@ class CreateSuratmasuksTable extends Migration
             $table->string('perihal_m');
             $table->string('nama_penerima');
             $table->string('hari_m');
-            $table->date('tanggal_surat');
+            $table->datetime('tanggal_surat');
             $table->string('tempat');
             $table->string('acara');
             $table->string('pakaian');
