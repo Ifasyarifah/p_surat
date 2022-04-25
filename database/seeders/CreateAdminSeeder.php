@@ -14,10 +14,19 @@ class CreateAdminSeeder extends Seeder
      */
     public function run()
     {
-        $admin = User::create([
-            'name'      => 'admin',
-            'email'     => 'admin@gmail.com',
-            'password'  => bcrypt('12345678')
+        \DB::table('users')->insert([
+            [
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'password' => \Hash::make('12345678'),
+                'isAdmin' => true
+            ],
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'password' => \Hash::make('12345678'),
+                'isAdmin' => false
+            ]
         ]);
     }
 }

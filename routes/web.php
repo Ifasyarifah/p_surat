@@ -25,7 +25,7 @@ Route::get('/', function(){
 Auth::routes();
 Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth', 'admin'])->group(function() {
     Route::get( '/member', [MemberController::class,'index']);
 
     Route::resource('surat_masuk', SuratmasukController::class);
