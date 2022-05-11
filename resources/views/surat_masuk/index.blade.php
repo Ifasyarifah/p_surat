@@ -7,15 +7,18 @@
     <div class="animated fadeIn">
       <div class="row">
         <div class="col-md-12">
+        <?php $a =auth::user()->isAdmin ?>
           <div class="card">
             <div class="card-header">
                 <strong class="card-title">Data Table</strong>
                 <br></br>
+                @if($a=="1")
                 <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Create</a>
                 <a href="{{route('surat_masuk.trash')}}" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-shopping-cart"></i> Restore</a>
-            </div>
+                @endif
+              </div>
                 <div class="card-body">
-                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                  <table id="Suratmasuk" class="table table-striped table-bordered">
                     <thead>
                       <tr>
                       <th>#</th>
