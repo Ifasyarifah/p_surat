@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Acara</label>
+                                    <label>Agenda</label>
                                     <input type="text" class="form-control @error('acara') is-invalid @enderror" name="acara" value="{{ old('acara') }}">
                                 </div>
                             </div>

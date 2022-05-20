@@ -10,7 +10,7 @@
         <?php $a =auth::user()->isAdmin ?>
           <div class="card">
             <div class="card-header">
-                <strong class="card-title">Data Table</strong>
+                <strong class="card-title">Data Table Surat Masuk</strong>
                 <br></br>
                 @if($a=="1")
                 <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Create</a>
@@ -28,7 +28,7 @@
                       <th>Hari</th>
                       <th>Tanggal/Waktu</th>
                       <th>Tempat</th>
-                      <th>Acara</th>
+                      <th>Agenda</th>
                       <th>Pakaian</th>
                       <th>Catatan</th>
                       <th>File</th>
@@ -41,7 +41,7 @@
                         <tr>
                           <th scope="row">{{$loop->iteration}}</th>
                           <td>{{ $data->nomor_suratM }}</td>
-                          <td>{{ $data->Perihal_m }}</td>
+                          <td>{{ $data->perihal_m }}</td>
                           <td>{{ $data->nama_penerima }}</td>
                           <td>{{ $data->hari_m }}</td>
                           <td>{{ $data->tanggal_surat }}</td>
@@ -57,7 +57,7 @@
                             <form action="{{ route('surat_masuk.destroy', [$data->id]) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class=" btn btn-danger btn-sm" onclick= "return confirm('Apakah anda ingin menghapus item.?'); event.preventDefault();
+                                <button type="submit" class=" btn btn-danger btn-sm" onclick= "return confirm('Apakah anda ingin menghapus data surat masuk ?'); event.preventDefault();
                                 document.getElementById('delete-item').submit();">
                                 <span class="fa fa-trash"></span>
                                 </button>
