@@ -14,7 +14,7 @@
                 <br></br>
                 @if($a=="1")
                 <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Create</a>
-                <a href="{{route('surat_masuk.trash')}}" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-shopping-cart"></i> Restore</a>
+                <!-- <a href="{{route('surat_masuk.trash')}}" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-shopping-cart"></i> Restore</a> -->
                 @endif
               </div>
                 <div class="card-body">

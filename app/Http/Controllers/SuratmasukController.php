@@ -58,7 +58,9 @@ class SuratmasukController extends Controller
 
         //upload image
         $file = $request->file('file');
-        $file->storeAs('public/file/surat-masuk', $file->hashName());
+        $path = $file->storeAs('public/file/surat-masuk', $file->hashName());
+        dd($path);
+
 
         $data = suratmasuk::create([
                 'id'                    => $request->id,
