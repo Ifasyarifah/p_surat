@@ -2,84 +2,117 @@
 
 @section('title', 'Create Suratmasuk')
 @section('content')
-<div class="page-wrapper">
-        <div class="content container-fluid">
-            <div class="page-header">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h3 class="page-title mt-5">Create Surat Masuk</h3>
-                    </div>
+<div class="container" style="margin-top: 80px">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    Tambah Tempat KP
                 </div>
-            </div>
-            <form action="{{ route('surat_masuk.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row formtype">
-                         
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>ID</label>
-                                    <input type="number" class="form-control @error('id') is-invalid @enderror"name="id" value="{{ old('id') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Nomor Surat</label>
-                                    <input type="number" class="form-control @error('nomor_suratM') is-invalid @enderror"name="nomor_suratM" value="{{ old('nomor_suratM') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Perihal</label>
-                                    <input type="text" class="form-control @error('perihal_m') is-invalid @enderror"name="perihal_m" value="{{ old('perihal_m') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Nama Penerima Surat</label>
-                                    <input type="text" class="form-control @error('nama_penerima') is-invalid @enderror" name="nama_penerima" value="{{ old('nama_penerima') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Hari</label>
-                                    <input type="text" class="form-control @error('hari_m') is-invalid @enderror"name="hari_m" value="{{ old('hari_m') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Tanggal/Waktu</label>
-                                    <div class="cal-icon">
-                                        <input type="datetime-local" class="form-control datetimepicker @error('tanggal_surat') is-invalid @enderror" name="tanggal_surat" value="{{ old('tanggal_surat') }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Tempat</label>
-                                    <input type="text" class="form-control @error('tempat') is-invalid @enderror" name="tempat" value="{{ old('tempat') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Agenda</label>
-                                    <input type="text" class="form-control @error('acara') is-invalid @enderror" name="acara" value="{{ old('acara') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Pakaian</label>
-                                    <input type="text" class="form-control @error('pakaian') is-invalid @enderror" name="pakaian" value="{{ old('pakaian') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Catatan</label>
-                                    <textarea class="form-control @error('catatan') is-invalid @enderror" rows="1.5" id="catatan" name="catatan" value="{{ old('catatan') }}"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                <div class="card-body">
+                    <form action="{{ route('surat_masuk.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                          <label for="id">ID</label>
+                          <input type="text" class="form-control @error('id') is-invalid @enderror" value="{{ old('id') }}" id="id" name="id" placeholder="Enter ID">
+
+                            @error('id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                          <label for="nomor_suratM">Nomor Surat</label>
+                          <input type="number" class="form-control @error('nomor_suratM') is-invalid @enderror" id="nomor_suratM" name="nomor_suratM" placeholder="Enter Nomor Surat">{{ old('nomor_suratM') }}
+
+                            @error('nomor_suratM')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="perihal_m">Perihal</label>
+                            <input type="text" class="form-control @error('perihal_m') is-invalid @enderror" value="{{ old('perihal_m') }}" id="perihal_m" name="perihal_m" placeholder="Enter Perihal">
+
+                            @error('perihal_m')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="nama_penerima">Postal Code</label>
+                            <input type="text" class="form-control @error('nama_penerima') is-invalid @enderror" value="{{ old('nama_penerima') }}" id="nama_penerima" name="nama_penerima" placeholder="Enter Nama Penerima">
+
+                            @error('nama_penerima')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="hari_m">Hari</label>
+                            <input type="text" class="form-control @error('hari_m') is-invalid @enderror" value="{{ old('hari_m') }}" id="hari_m" name="hari_m" placeholder="Enter hari_m">
+
+                            @error('hari_m')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal_surat">Tgl/Wkt Surat</label>
+                            <input type="datetime-local" class="form-control @error('tanggal_surat') is-invalid @enderror" value="{{ old('tanggal_surat') }}" id="tanggal_surat" name="tanggal_surat" placeholder="Enter Tgl/wktu">
+
+                            @error('tanggal_surat')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="tempat">Tempat</label>
+                            <input type="text" class="form-control @error('hari_m') is-invalid @enderror" value="{{ old('tempat') }}" id="tempat" name="tempat" placeholder="Enter Tempat">
+
+                            @error('tempat')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="acara">Agenda</label>
+                            <input type="text" class="form-control @error('acara') is-invalid @enderror" value="{{ old('acara') }}" id="hari_m" name="hari_m" placeholder="Enter Agenda">
+
+                            @error('acara')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="pakaian">Pakaian</label>
+                            <input type="text" class="form-control @error('hari_m') is-invalid @enderror" value="{{ old('pakaian') }}" id="pakaian" name="pakaian" placeholder="Enter pakaian">
+
+                            @error('pakaian')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="catatan">Catatan</label>
+                            <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" value="{{ old('catatan') }}" id="catatan" name="catatan" placeholder="Enter Catatan"></textarea> 
+
+                            @error('catatan')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-4">
                                 <div class="form-group">
                                     <label>File Upload</label>
                                     <div class="custom-file mb-3">
@@ -88,27 +121,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Status</label>
-                                    <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" value="{{ old('status') }}">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <input type="text" class="form-control @error('status') is-invalid @enderror" value="{{ old('status') }}" id="status" name="status" placeholder="Enter status">
+
+                            @error('status')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-success btn-sm">Save</button>
-            </form>
+            </div>
         </div>
     </div>
-    @section('script')
-    <script>
-        $(function() {
-            $('#datetimepicker3').datetimepicker({
-                format: 'LT'
-            });
-        });
-        </script>
-    @endsection
-
+</div>
 @endsection

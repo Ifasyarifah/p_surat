@@ -11,7 +11,9 @@
         <?php $a =auth::user()->isAdmin ?>
           <div class="card">
             <div class="card-header">
-                <h3>Data Surat Masuk<sup style="font-size: 20px"></sup></h3>
+                <div class="card-header">
+                    Data Surat Masuk
+                </div>
                 <br></br>
                 @if($a=="1")
                 <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Create</a>
