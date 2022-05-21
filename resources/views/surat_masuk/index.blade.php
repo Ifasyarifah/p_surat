@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('title', 'Halaman Surat Masuk')
+
 @section('content') 
 <div class="container">
   <div class="content mt-4">
@@ -10,13 +11,15 @@
         <?php $a =auth::user()->isAdmin ?>
           <div class="card">
             <div class="card-header">
-                <strong class="card-title">Data Table Surat Masuk</strong>
+                <h3>Data Surat Masuk<sup style="font-size: 20px"></sup></h3>
                 <br></br>
                 @if($a=="1")
                 <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Create</a>
-                <!-- <a href="{{route('surat_masuk.trash')}}" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-shopping-cart"></i> Restore</a> -->
+                <!-- <form><input class="search" type="text"placeholder="cari..." required>
+                  <input class="button" type="button" value="Cari"></form> -->
                 @endif
               </div>
+
                 <div class="card-body">
                   <table id="Suratmasuk" class="table table-striped table-bordered">
                     <thead>
@@ -73,6 +76,27 @@
       </div>
     </div>
   </div>
-</div>              
+</div> 
+<!-- script -->
+<script src="{{ asset('') }}assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/jszip/jszip.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="{{ asset('') }}assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script>
+  $(function () {
+    $("#Suratmasuk").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["print"]
+    }).buttons().container().appendTo('#Suratmasuk_wrapper .col-md-6:eq(0)');
+  });
+</script>             
 @endsection
   

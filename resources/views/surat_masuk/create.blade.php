@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success btn-sm">Create Surat Masuk</button>
+                <button type="submit" class="btn btn-success btn-sm">Save</button>
             </form>
         </div>
     </div>

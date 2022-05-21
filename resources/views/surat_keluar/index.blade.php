@@ -56,6 +56,4 @@
         <div class="alert alert-alert">Start Adding to the Database.</div>
     @endif
 
-    {!! $suratkeluar->links() !!}
-
 @endsection
