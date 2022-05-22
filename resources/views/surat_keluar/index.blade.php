@@ -1,59 +1,86 @@
-@extends('surat_keluar.layout')
+@extends('layouts.master')
 
+@section('title', 'Surat Keluar')
 @section('content')
-
+<div class="container" style="margin-top: 80px">
     <div class="row">
-        <div class="col-lg-12">
-            <h2 class="text-center">Simple suratkeluar Management Application | BH</h2>
-        </div>
-        <div class="col-lg-12 text-center" style="margin-top:10px;margin-bottom: 10px;">
-            <a class="btn btn-success " href="{{ route('surat_keluar.create') }}"> Add suratkeluar</a>
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">Data Surat Keluar</h6>
+                </div>
+                <div class="card-body">
+                    <div class="button-action" style="margin-bottom: 20px">
+                        @can('surat_keluar-create')
+                        <a href="{{ route('surat_keluar.create') }}" class="btn btn-danger btn-icon-split">Tambah</a>
+                        @endcan
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="kelas-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nomor Surat</th>
+                                    <th scope="col">Perihal</th>
+                                    <th scope="col">Nama Pemohon</th>
+                                    <th scope="col">Tgl/Wkt Surat</th>
+                                    <th scope="col">Tempat</th>
+                                    <th scope="col">Agenda</th>
+                                    <th scope="col">Catatan</th>
+                                    <th scope="col">TTD</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            {{ $message }}
-        </div>
-    @endif
+<form id="delete-form" action="" method="POST" class="d-none">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <input type="hidden" name="_method" value="DELETE">
+</form>
+@section('javascript')
+<script>
+    $('#Suratkeluar').DataTable({
+        processing: true,
+        serverside: true,
+        ajax: {
+            url: "{{ route('surat_keluar.index') }}",
+            type: 'GET',
+        },
+        "responsive": true,
+        columns: [{
+                data: 'DT_RowIndex',
+            },
+            {
+                data: 'surat_keluar',
+            },
+            
+        ]
+    });
 
-    @if(sizeof($suratkeluars) > 0)
-        <table class="table table-bordered">
-            <tr>
-            <th>Nomor Surat</th>
-            <th>Perihal</th>
-            <th>Nama Pemohon</th>
-            <th>Tanggal Surat</th>
-            <th>Tempat</th>
-            <th>Agenda</th>
-            <th>Catatan</th>
-            <th>TTD</th>
-            <th class="text-right">Actions</th>
-            </tr>
-            @foreach ($suratkeluar as $suratkeluar)
-                <tr>
-                    <td>{{ $suratkeluar-> nomor_suratK }}</td>
-                    <td>{{ $suratkeluar->perihal_k }}</td>
-                    <td>{{ $suratkeluar->nama_pemohon }}</td>
-                    <td>{{ $suratkeluar->tanggal_suratK }}</td>
-                    <td>{{ $suratkeluar->tempat }}</td>
-                    <td>{{ $suratkeluar->agenda }}</td>
-                    <td>{{ $suratkeluar->catatan }}</td>
-                    <td>{{ $suratkeluar->TTD }}</td>
-                    <td>
-                        <form action="{{ route('surat_keluar.destroy',$suratkeluar->nomor_suratK) }}" method="POST">
-                            <a class="btn btn-info" href="{{ route('surat_keluar.show',$suratkeluar->nomor_suratK) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('surat_keluar.edit',$suratkeluar->nomor_suratK) }}">Edit</a>
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </table>
-    @else
-        <div class="alert alert-alert">Start Adding to the Database.</div>
-    @endif
+    function deleteData() {
+        event.preventDefault();
+        document.getElementById('delete-form').submit();
+    }
 
+    function confirmForm(e) {
+        let id = e.getAttribute('data-id');
+
+        $('#delete-form').attr('action', '/surat_keluar/' + id);
+
+        if (!confirm('Anda Yakin Ingin Menghapusnya ?')) {
+            event.preventDefault();
+        } else {
+            deleteData();
+        }
+    }
+</script>
+@endsection
 @endsection

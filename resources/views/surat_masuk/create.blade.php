@@ -116,7 +116,7 @@
                                 <div class="form-group">
                                     <label>File Upload</label>
                                     <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input @error('file') is-invalid @enderror" name="file" value="{{ old('file') }}">
+                                        <input type="file" class="form-control  @error('file') is-invalid @enderror" name="file" value="{{ old('file') }}">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>
