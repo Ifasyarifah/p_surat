@@ -12,11 +12,11 @@
           <div class="card">
             <div class="card-header">
                 <div class="card-header" >
-                    Data Surat Masuk
+                    <h5>Data Surat Masuk</h5>
                 </div>
                 <br></br>
                 @if($a=="1")
-                <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Create</a>
+                <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-danger btn-sm"><i class="fa fa-plus"></i> Create</a>
                 <!-- <form><input class="search" type="text"placeholder="cari..." required>
                   <input class="button" type="button" value="Cari"></form> -->
                 @endif
