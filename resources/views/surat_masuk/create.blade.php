@@ -19,14 +19,6 @@
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                        <strong>ID:</strong>
-                            <input type="number" name="id" class="form-control" placeholder="masukkan id">
-                            </div>
-                        </div>
-                    </div>
-                        <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
                         <strong>Nomor Surat:</strong>
                             <input type="number" name="nomor_suratM" class="form-control" placeholder="masukkan nomor surat">
                             </div>

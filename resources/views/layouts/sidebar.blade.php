@@ -38,8 +38,7 @@
                 <a href="{{ route('logout')}}" class="nav-link" 
                 onclick="
                 event.preventDefault();
-                document.getElementById('formLogout').submit();"
-                >
+                document.getElementById('formLogout').submit();">
                   <i class="far fa-circle nav-icon"></i>
                   <p>logout</p>
                 </a>

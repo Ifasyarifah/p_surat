@@ -52,7 +52,7 @@ class SuratkeluarController extends Controller
         ]);
 
         suratkeluar::create($request->all());
-        return redirect()->route(surat_keluar.index)
+        return redirect()->route('surat_keluar.index')
                          ->with('success', 'surat keluar berhasil disimpan');
     }
     /**

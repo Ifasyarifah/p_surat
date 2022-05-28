@@ -14,6 +14,7 @@ class CreateSuratkeluarsTable extends Migration
     public function up()
     {
         Schema::create('suratkeluars', function (Blueprint $table) {
+            $table->id();
             $table->integer('nomor_suratK');
             $table->string('perihal_k');
             $table->string('nama_pemohon');
