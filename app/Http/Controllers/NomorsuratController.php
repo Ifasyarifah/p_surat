@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\nomorsurat;
+use App\Models\suratkeluar;
+use App\Models\suratmasuk;
 use Illuminate\Http\Request;
 use DataTables;
 use Auth;

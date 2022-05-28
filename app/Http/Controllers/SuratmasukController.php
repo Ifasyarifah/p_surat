@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
+use App\Models\suratkeluar;
 use App\Models\suratmasuk;
+use App\Models\nomorsurat;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-
 use Illuminate\Http\Request;
+use DataTables;
+use Auth;
 
 class SuratmasukController extends Controller
 {
@@ -17,9 +21,60 @@ class SuratmasukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $datas = suratmasuk::all();
+        $auth = Auth::user();
+        if ($request->ajax()) {
+            return DataTables::of($datas)
+                    ->addColumn('nomor_suratM', function($row){
+                        return $row->nomor_suratM;
+                    })
+                    ->addColumn('perihal_m', function($row){
+                        return $row->perihal_k;
+                    })
+                    ->addColumn('nama_penerima', function($row){
+                        return $row->nama_penerima;
+                    })
+                    ->addColumn('hari_m', function($row){
+                        return $row->hari_m;
+                    })
+                    ->addColumn('tanggal_surat', function($row){
+                        return $row->tanggal_surat;
+                    })
+                    ->addColumn('tempat', function($row){
+                        return $row->tempat;
+                    })
+                    ->addColumn('acara', function($row){
+                        return $row->acara;
+                    })
+                    ->addColumn('pakaian', function($row){
+                        return $row->pakaian;
+                    })
+                    ->addColumn('catatan', function($row){
+                        return $row->catatan;
+                    })
+                    ->addColumn('file', function($row){
+                        return $row->file;
+                    })
+                    ->addColumn('status', function($row){
+                        return $row->status;
+                    })
+                    ->addColumn('action', function($row)use($auth){
+                        $button = '';
+
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<a href="'.route('surat_masuk.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-edit"></i></a>';
+
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+
+                        return $button;
+                    })
+                    ->rawColumns(['action'])
+                    ->addIndexColumn()
+                    ->make(true);
+        }
         return view('surat_masuk.index',compact('datas'));
     }
 
@@ -32,7 +87,6 @@ class SuratmasukController extends Controller
     {
         return view('surat_masuk.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -41,220 +95,109 @@ class SuratmasukController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'id'            => 'required|string|max:255',
-            'nomor_suratM'   => 'required|string|max:255',
+        $request->validate([
+            'nomor_suratM'     => 'required|string|max:255',
             'perihal_m'     => 'required|string|max:255',
             'nama_penerima' => 'required|string|max:255',
-            'hari_m' => 'required|string|max:255',
+            'hari_m'  => 'required|string|max:255',
             'tanggal_surat' => 'required|string|max:255',
             'tempat'  => 'required|string|max:255',
             'acara' => 'required|string|max:255',
-            'pakaian'      => 'required|string|max:255',
+            'pakaian'  => 'required|string|max:255',
             'catatan'  => 'required|string|max:255',
             'file' => 'required|file',
-            
+            'status'  => 'required|string|max:255',
         ]);
 
-        //upload image
-        $file = $request->file('file');
-        $path = $file->storeAs('public/file/surat-masuk', $file->hashName());
-        
+        $data = $request->all();
+        // $data['nomor_suratM'] = $this->generateNomorSurat();
 
-
-        $data = suratmasuk::create([
-                'id'                    => $request->id,
-                'nomor_suratM'          => $request->nomor_suratM,
-                'perihal_m'             => $request->perihal_m,
-                'nama_penerima'         => $request->nama_penerima,
-                'hari_m'                => $request->hari_m,
-                'tanggal_surat'         => $request->tanggal_surat,
-                'tempat'                => $request->tempat,
-                'acara'                 => $request->acara,
-                'pakaian'               => $request->pakaian,
-                'catatan'               => $request->catatan,
-                'file'                  => $file->hashName(),
-                'status'                => $request->status,
-                
-            
+        suratkeluar::create([
+            'nomor_suratM' => $data['nomor_suratM'],
+            'perihal_m' => $data['perihal_m'],
+            'nama_penerima' => $data['nama_penerima'],
+            'hari_m' => $data['hari_m'],
+            'tanggal_surat' => $data['tanggal_surat'],
+            'tempat' => $data['tempat'],
+            'acara' => $data['acara'],
+            'pakaian' => $data['pakaian'],
+            'catatan' => $data['catatan'],
+            'nomor_suratK' => $data['nomor_suratK'],
+            'file'   => $data['file'],
+            'status' => $data['status']
         ]);
-        if($data){
-            return redirect()->route('surat_masuk.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
-            return redirect()->route('surat_masuk.index')->with(['error' => 'Data Gagal Disimpan!']);
-        }
+        return redirect()->route('surat_masuk.index')
+                         ->with('success', 'surat masuk berhasil disimpan');
     }
-
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\suratmasuk $suratmasuk
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(suratmasuk $suratmasuk)
     {
-        // return view('show-surat_masuk', compact('datas'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(suratmasuk $id)
-    {
-        $datas = suratmasuk::all();
-        return view('surat_masuk.edit',compact('datas'));
+        return view('surat_masuk.edit', compact('suratmasuk'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\suratmasuk $suratmasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $Request, suratmasuk $suratmasuk)
     {
-        $Suratmasuks = Suratmasuk::findOrFail($id); //mencari user berdasarkan id Suratmasuk
-        // dd($Suratmasuks);
-        $validated = $request->validate([
-            'id'   => 'required|string|max:255',
-            'nomor_suratM'   => 'required|string|max:255',
-            'periha_m'     => 'required|string|max:255',
+       $request->validate([
+            'perihal_m'     => 'required|string|max:255',
             'nama_penerima' => 'required|string|max:255',
-            'hari_m' => 'required|string|max:255',
+            'hari_m'  => 'required|string|max:255',
             'tanggal_surat' => 'required|string|max:255',
             'tempat'  => 'required|string|max:255',
             'acara' => 'required|string|max:255',
-            'pakaian'      => 'required|string|max:255',
+            'pakaian'  => 'required|string|max:255',
             'catatan'  => 'required|string|max:255',
-            'fileupload' => 'required|file',
+            'file' => 'required|file',
             'status'  => 'required|string|max:255',
-       
         ]);
-
-        if($request->file('file') == "") {
-
-            $Suratmasuks->update([
-                'nomor_suratM'          => $request->nomor_suratM,
-                'perihal_m'             => $request->perihal_m,
-                'nama_penerima'         => $request->nama_penerima,
-                'hari_m'                => $request->hari_m,
-                'tanggal_surat'         => $request->tanggal_surat,
-                'tempat'                => $request->tempat,
-                'acara'                 => $request->acara,
-                'pakaian'               => $request->pakaian,
-                'catatan'               => $request->catatan,
-                'file'                  => $request->file,
-                'status'                => $request->status,
-                
-            ]);
-    
-        } else {
-    
-            //hapus old file
-            Storage::disk('local')->delete('public/file/'.$Suratmasuks->file);
-    
-            //upload new file
-            $file = $request->file('file');
-            $file->storeAs('public/file', $image->hashName());
-    
-            $Suratmasuks->update([
-                'id'                    => $request->id,
-                'nomor_suratM'          => $request->nomor_suratM,
-                'perihal_m'             => $request->perihal_m,
-                'nama_penerima'         => $request->nama_penerima,
-                'hari_m'                => $request->hari_m,
-                'tanggal_surat'         => $request->tanggal_surat,
-                'tempat'                => $request->tempat,
-                'acara'                 => $request->acara,
-                'pakaian'               => $request->pakaian,
-                'catatan'               => $request->catatan,
-                'file'                  => $request->file,
-                'status'                => $request->status,
-                
-            ]);
-    
-        }
-        if($Suratmasuks){
-            return redirect()->route('surat_masuk.index')->with(['info' => 'Anda menambahkan item baru']);
-        }else{
-            return redirect()->route('surat_masuk.index')->with(['error' => 'Data Gagal Disimpan!']);
-        }
+        
+        $suratmasuk->update($request->all());
+        return redirect()->route(surat_masuk.index)->with('success', 'surat masuk berhasil done');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\suratmasuk $suratmasuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(suratmasuk $suratmasuk)
     {
-        $Suratmasuks = Suratmasuk::findOrFail($id);
-        $Suratmasuks->delete();
-        return redirect()->route('surat_masuk.index')->with(['warning' => 'Data Berhasil Hapus Sementara']);
-         
+        $suratmasuk->delete();
+        return redirect()->route(surat_masuk.index)->with('success', 'surat masuk berhasil delete');
     }
 
-    public function getDeleteSuratmasuk()
-    {
-        $datas = Suratmasuk::onlyTrashed()->get();
-        return view('surat_masuk.trash', compact('datas'));
-    }
+    // private function generateNomorSurat()
+    // {
+    //     $count  = suratkeluar::count();
+    //     $prefix = nomorsurat::first();
 
-    public function restore($id)
-    {
+    //     if ($count > 0) {
+    //         $count  = $count + 1;
+    //         $no     = sprintf("%03s", $count);
+    //     }else{
+    //         $no = "001";
+    //     }
 
-        $surat_masuk = Suratmasuk::onlyTrashed()->where('id', $id);
-        $surat_masuk->restore();
+    //     if (empty($prefix)) {
+    //         $pref = "/KI. KAB.SMP/I/";
+    //     }else{
+    //         $pref = $prefix->prefix;
+    //     }
 
-        if ($surat_masuk) {
-            return redirect()->route('surat_masuk.trash')->with(['success' => 'Data Berhasil Direstore!']);
-        } else {
-            return redirect()->route('surat_masuk.trash')->with(['error' => 'Data Gagal Direstore!']);
-        
-        }
-    }
+    //     $no_prefix = $no.$pref.date('Y');
+    //     return $no_prefix;
+    // }
 
-    public function restoreAll()
-    {
-        
-        $compan= Suratmasuk::onlyTrashed();
-        $compan->restore();
-
-        if ($compan) {
-            return redirect()->route('surat_masuk.index')->with(['success'  => 'Semua Data Berhasil Direstore!']);
-        } else {
-            return redirect()->route('surat_masuk.trash')->with(['error'    => 'Data Gagal Direstore!']);
-        }
-            
-    }
-
-    public function deletePermanent($id)
-    {
-        $surat_masuk = Suratmasuk::onlyTrashed()->where('id',$id);
-        $surat_masuk->forceDelete();
-       
-        if ($surat_masuk) {
-            return redirect()->route('surat_masuk.trash')->with(['success'   => 'Data Berhasil Dihapus Permanen!']);
-        } else {
-            return redirect()->route('surat_masuk.trash')->with(['error'     => 'Data Gagal Dihapus!']);
-        } 
-    }
-
-    public function deleteAll()
-    {
-
-        $compan = Suratmasuk::onlyTrashed();
-        $compan->forceDelete();
-
-        if ($compan) {
-            return redirect()->route('surat_masuk.index')->with(['success'   => 'Semua Data Berhasil Dihapus Permanen!']);
-        } else {
-            return redirect()->route('surat_masuk.trash')->with(['error'     => 'Data Gagal Dihapus!']);
-        }
-    }
 }

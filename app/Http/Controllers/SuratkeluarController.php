@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\suratkeluar;
+use App\Models\suratmasuk;
 use App\Models\nomorsurat;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
@@ -22,10 +23,47 @@ class SuratkeluarController extends Controller
      */
     public function index(Request $request)
     {
-        $suratkeluars = suratkeluar::all();
+        $datas = suratkeluar::all();
         $auth = Auth::user();
+        if ($request->ajax()) {
+            return DataTables::of($datas)
+                    ->addColumn('perihal_k', function($row){
+                        return $row->perihal_k;
+                    })
+                    ->addColumn('nama_pemohon', function($row){
+                        return $row->nama_pemohon;
+                    })
+                    ->addColumn('tanggal_suratK', function($row){
+                        return $row->tanggal_suratK;
+                    })
+                    ->addColumn('tempat', function($row){
+                        return $row->tempat;
+                    })
+                    ->addColumn('agenda', function($row){
+                        return $row->agenda;
+                    })
+                    ->addColumn('catatan', function($row){
+                        return $row->catatan;
+                    })
+                    ->addColumn('TTD', function($row){
+                        return $row->TTD;
+                    })
+                    ->addColumn('action', function($row)use($auth){
+                        $button = '';
 
-        return view('surat_keluar.index',compact('suratkeluars'));
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<a href="'.route('nomor_surat.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-edit"></i></a>';
+
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+
+                        return $button;
+                    })
+                    ->rawColumns(['action'])
+                    ->addIndexColumn()
+                    ->make(true);
+        }
+        return view('surat_keluar.index',compact('datas'));
     }
 
     /**
