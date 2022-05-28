@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\nomorsurat;
 use Illuminate\Http\Request;
+use DataTables;
+use Auth;
 
 class NomorsuratController extends Controller
 {
@@ -12,9 +14,31 @@ class NomorsuratController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $datas = nomorsurat::all();
+        $auth  = Auth::user();
+
+        if ($request->ajax()) {
+            return DataTables::of($datas)
+                    ->addColumn('prefix', function($row){
+                        return $row->prefix;
+                    })
+                    ->addColumn('action', function($row)use($auth){
+                        $button = '';
+
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<a href="'.route('nomor_surat.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-edit"></i></a>';
+
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+
+                        return $button;
+                    })
+                    ->rawColumns(['action'])
+                    ->addIndexColumn()
+                    ->make(true);
+        }
         return view('nomor_surat.index',compact('datas'));
     }
 
@@ -62,9 +86,9 @@ class NomorsuratController extends Controller
      * @param  \App\Models\nomorsurat  $nomorsurat
      * @return \Illuminate\Http\Response
      */
-    public function edit(nomorsurat $nomorsurat)
+    public function edit(nomorsurat $nomor_surat)
     {
-        return view('nomor_surat.edit', compact('nomorsurat'));
+        return view('nomor_surat.edit', compact('nomor_surat'));
     }
 
     /**
@@ -74,13 +98,13 @@ class NomorsuratController extends Controller
      * @param  \App\Models\nomorsurat  $nomorsurat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, nomorsurat $nomorsurat)
+    public function update(Request $request, nomorsurat $nomor_surat)
     {
         $validated = $request->validate([
             'prefix'   => 'required|string|max:255',
         ]);
 
-        $nomorsurat->update($validated);
+        $nomor_surat->update($validated);
         return redirect()->route('nomor_surat.index')
                          ->with('success', 'nomor surat berhasil disimpan');
     }
@@ -91,9 +115,9 @@ class NomorsuratController extends Controller
      * @param  \App\Models\nomorsurat  $nomorsurat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(nomorsurat $nomorsurat)
+    public function destroy(nomorsurat $nomor_surat)
     {
-        $nomorsurat->delete();
+        $nomor_surat->delete();
         return redirect()->route('nomor_surat.index')
                          ->with('success', 'nomor surat berhasil dihapus');
     }

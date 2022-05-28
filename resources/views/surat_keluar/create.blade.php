@@ -14,16 +14,8 @@
                         <a href="{{ route('surat_keluar.index') }}" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
 
-                    <form action="{{ route('surat_keluar.store') }}" method="POST">
+                    <form action="{{ route('surat_keluar.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                        <strong>Nomor Surat:</strong>
-                            <input type="number" name="nomor_suratK" class="form-control" placeholder="masukkan nomor surat">
-                            </div>
-                        </div>
-                    </div>
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
@@ -43,16 +35,8 @@
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                        <strong>Hari:</strong>
-                            <input type="text" name="hari_m" class="form-control" placeholder="masukkan hari">
-                            </div>
-                        </div>
-                    </div>
-                        <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
                         <strong>Tgl/Bln/Thn Surat:</strong>
-                            <input type="date" name="tanggal_surat" class="form-control" placeholder="tanggal_surat">
+                            <input type="date" name="tanggal_suratK" class="form-control" placeholder="tanggal_surat">
                             </div>
                         </div>
                     </div>
@@ -68,18 +52,10 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                         <strong>Agenda:</strong>
-                            <input type="text" name="acara" class="form-control" placeholder="masukkan agenda">
+                            <input type="text" name="agenda" class="form-control" placeholder="masukkan agenda">
                             </div>
                         </div>
                     </div>
-                        <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                        <strong>Pakaian:</strong>
-                            <input type="text" name="pakaian" class="form-control" placeholder="masukkan pakaian">
-                        </div>
-                    </div>
-                </div>
                     <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
@@ -92,18 +68,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                     <strong>File:</strong>
-                        <input type="file" name="file" class="form-control" placeholder="file">
+                        <input type="file" name="TTD" class="form-control" placeholder="file">
                         </div>
                     </div>
                 </div>
-                    <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                    <strong>Status:</strong>
-                        <input type="text" name="status" class="form-control" placeholder="masukkan status">
-                    </div>
-                </div>
-            </div>
                 <button type="submit" class="btn btn-danger">Submit</button>
                     </form>
                 </div>

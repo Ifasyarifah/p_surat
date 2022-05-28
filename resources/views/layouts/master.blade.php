@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('') }}assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- jQuery -->
+<script src="{{ asset('') }}assets/plugins/jquery/jquery.min.js"></script>
     <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
+    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('') }}assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('') }}assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('') }}assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
@@ -67,16 +72,13 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="{{ asset('') }}assets/plugins/jquery/jquery.min.js"></script>
 <!-- DataTables  & Plugins -->
 
 @stack('custom-script')
 <!-- AdminLTE App -->
 <script src="{{ asset('') }}assets/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('') }}assets/dist/js/demo.js"></script>
+{{-- <script src="{{ asset('') }}assets/dist/js/demo.js"></script> --}}
 
 </body>
 </html>

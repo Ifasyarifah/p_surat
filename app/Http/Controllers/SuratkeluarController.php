@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\suratkeluar;
+use App\Models\nomorsurat;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use DataTables;
+use Auth;
 
 class SuratkeluarController extends Controller
 {
@@ -17,9 +20,11 @@ class SuratkeluarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $suratkeluars = suratkeluar::all();
+        $auth = Auth::user();
+
         return view('surat_keluar.index',compact('suratkeluars'));
     }
 
@@ -41,8 +46,7 @@ class SuratkeluarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nomor_suratK'   => 'required|string|max:255',
-            'periha_k'     => 'required|string|max:255',
+            'perihal_k'     => 'required|string|max:255',
             'nama_pemohon' => 'required|string|max:255',
             'tanggal_suratK' => 'required|string|max:255',
             'tempat'  => 'required|string|max:255',
@@ -51,7 +55,19 @@ class SuratkeluarController extends Controller
             'TTD' => 'required|file',
         ]);
 
-        suratkeluar::create($request->all());
+        $data = $request->all();
+        $data['nomor_suratK'] = $this->generateNomorSurat();
+
+        suratkeluar::create([
+            'perihal_k' => $data['perihal_k'],
+            'nama_pemohon' => $data['nama_pemohon'],
+            'tanggal_suratK' => $data['tanggal_suratK'],
+            'tempat' => $data['tempat'],
+            'agenda' => $data['agenda'],
+            'catatan' => $data['catatan'],
+            'nomor_suratK' => $data['nomor_suratK'],
+            'TTD'   => $data['TTD'],
+        ]);
         return redirect()->route('surat_keluar.index')
                          ->with('success', 'surat keluar berhasil disimpan');
     }
@@ -100,6 +116,28 @@ class SuratkeluarController extends Controller
     {
         $suratkeluar->delete();
         return redirect()->route(surat_keluar.index)->with('success', 'surat keluar berhasil delete');
-    }  
+    }
+
+    private function generateNomorSurat()
+    {
+        $count  = suratkeluar::count();
+        $prefix = nomorsurat::first();
+
+        if ($count > 0) {
+            $count  = $count + 1;
+            $no     = sprintf("%03s", $count);
+        }else{
+            $no = "001";
+        }
+
+        if (empty($prefix)) {
+            $pref = "/KI. KAB.SMP/I/";
+        }else{
+            $pref = $prefix->prefix;
+        }
+
+        $no_prefix = $no.$pref.date('Y');
+        return $no_prefix;
+    }
 
 }

@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MemberControlle;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\SuratmasukController;
 use App\Http\Controllers\SuratkeluarController;
 use App\Http\Controllers\DisposisiController;
+use App\Http\Controllers\NomorsuratController;
 
 
 
@@ -36,6 +37,8 @@ Route::middleware(['auth', 'admin'])->group(function() {
     Route::get('surat_masuk/delete-all',  [SuratmasukController::class, 'deleteAll'])->name('surat_masuk.deleteAll');
 
     Route::resource('surat_keluar', SuratkeluarController::class);
+
+    Route::resource('nomor_surat', NomorsuratController::class);
     
 });
 
