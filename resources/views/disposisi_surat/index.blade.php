@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Surat Keluar')
+@section('title', 'Disposisi Surat')
 @section('content')
 <div class="container">
   <div class="content mt-4">
@@ -11,26 +11,25 @@
           <div class="card">
             <div class="card-header">
                 <div class="card-header" >
-                    <h5>Data Nomor Surat</h5>
+                    <h5>Data Disposisi Surat</h5>
                         </div>
                             <br></br>
                             @if($a=="1")
-                        <a href="{{route('surat_keluar.create')}}" type="button" class="btn btn-danger btn-sm"><i class="fa fa-plus"></i> Create</a>
+                        <a href="{{route('disposisi_surat.create')}}" type="button" class="btn btn-danger btn-sm"><i class="fa fa-plus"></i> Create</a>
                     @endif
                 </div>
                 <div class="card-body">
-                  <table id="suratkeluar" class="table table-striped table-bordered">
+                  <table id="disposisi" class="table table-striped table-bordered">
                     <thead>
                       <tr>
                       <th>#</th>
-                      <th>Nomor Surat</th>
+                      <th>Asal Surat</th>
+                      <th>Tgl Diterima</th>
+                      <th>No Agenda</th>
+                      <th>Tgl Disposisi</th>
+                      <th>Nomor Disposisi</th>
                       <th>Perihal</th>
-                      <th>Nama Pemohon</th>
-                      <th>Tanggal Surat</th>
-                      <th>Tempat</th>
-                      <th>Agenda</th>
-                      <th>Catatan</th>
-                      <th>TTD</th>
+                      <th>Klarifikasi</th>
                       <th class="text-center">Actions</th>
                       </tr>
                     </thead>
@@ -51,11 +50,11 @@
 <!-- script -->
 @push('custom-script')
 <script>
-    $('#suratkeluar').DataTable({
+    $('#disposisi').DataTable({
         processing: true,
         serverside: true,
         ajax: {
-            url: "{{ route('surat_keluar.index') }}",
+            url: "{{ route('disposisi_surat.index') }}",
             type: 'GET',
         },
         "responsive": true,
@@ -63,31 +62,26 @@
                 data: 'DT_RowIndex',
             },
             {
-                data: 'nomor_suratK',
+                data: 'asal_surat',
             },
             {
-                data: 'perihal_k',
+                data: 'tanggal_diterima',
             },
             {
-                data: 'nama_pemohon',
+                data: 'nomor_agenda',
             },
             {
-                data: 'tanggal_suratK',
+                data: 'tanggal_d',
             },
             {
-                data: 'tempat',
+                data: 'nomor_disposisi',
             },
             {
-                data: 'agenda',
+                data: 'perihal',
             },
             {
-                data: 'catatan',
+                data: 'klarifikasi',
             },
-            {
-                data: 'TTD',
-            },
-            {
-
                 data: 'action',
             },
         ]
@@ -98,7 +92,7 @@
     }
     function confirmForm(e) {
         let id = e.getAttribute('data-id');
-        $('#delete-form').attr('action', '/surat_keluar/' + id);
+        $('#delete-form').attr('action', '/disposisi/' + id);
         if (!confirm('Anda Yakin Ingin Menghapusnya ?')) {
             event.preventDefault();
         } else {

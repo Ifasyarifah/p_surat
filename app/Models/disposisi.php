@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class disposisi extends Model
 {
     protected $table = "disposisis";
-    protected $fillable = ['nomor_suratK', 'perihal_k', 'nama_pemohon', 'tanggal_suratK', 'tempat', 'agenda', 'catatan', 'TTD'];
+    protected $fillable = ['asal_surat', 'tanggal_diterima', 'nomor_agenda', 'nomor_disposisi', 'perihal', 'klarifikasi'];
 }

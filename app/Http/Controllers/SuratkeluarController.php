@@ -46,7 +46,7 @@ class SuratkeluarController extends Controller
                         return $row->catatan;
                     })
                     ->addColumn('TTD', function($row){
-                        return $row->TTD;
+                        return '<img src="'.asset('storage/doc/surat_keluar/'.$row->TTD).'" width="100px"/>';
                     })
                     ->addColumn('action', function($row)use($auth){
                         $button = '';
@@ -59,7 +59,7 @@ class SuratkeluarController extends Controller
 
                         return $button;
                     })
-                    ->rawColumns(['action'])
+                    ->rawColumns(['TTD','action'])
                     ->addIndexColumn()
                     ->make(true);
         }
@@ -95,16 +95,19 @@ class SuratkeluarController extends Controller
 
         $data = $request->all();
         $data['nomor_suratK'] = $this->generateNomorSurat();
+        $file = $request->file('TTD');
+        $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
+        $file->storeAs('public/doc/surat_keluar/', $nama_file);
 
         suratkeluar::create([
-            'perihal_k' => $data['perihal_k'],
-            'nama_pemohon' => $data['nama_pemohon'],
-            'tanggal_suratK' => $data['tanggal_suratK'],
-            'tempat' => $data['tempat'],
-            'agenda' => $data['agenda'],
-            'catatan' => $data['catatan'],
-            'nomor_suratK' => $data['nomor_suratK'],
-            'TTD'   => $data['TTD'],
+            'perihal_k'         => $data['perihal_k'],
+            'nama_pemohon'      => $data['nama_pemohon'],
+            'tanggal_suratK'    => $data['tanggal_suratK'],
+            'tempat'            => $data['tempat'],
+            'agenda'            => $data['agenda'],
+            'catatan'           => $data['catatan'],
+            'nomor_suratK'      => $data['nomor_suratK'],
+            'TTD'               => $nama_file,
         ]);
         return redirect()->route('surat_keluar.index')
                          ->with('success', 'surat keluar berhasil disimpan');
@@ -139,7 +142,7 @@ class SuratkeluarController extends Controller
             'catatan'  => 'required|string|max:255',
             'TTD' => 'required|file',
         ]);
-        
+
         $suratkeluar->update($request->all());
         return redirect()->route(surat_keluar.index)->with('success', 'surat keluar berhasil done');
     }

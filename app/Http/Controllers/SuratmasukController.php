@@ -95,7 +95,7 @@ class SuratmasukController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nomor_suratM'     => 'required|string|max:255',
             'perihal_m'     => 'required|string|max:255',
             'nama_penerima' => 'required|string|max:255',
@@ -105,29 +105,16 @@ class SuratmasukController extends Controller
             'acara' => 'required|string|max:255',
             'pakaian'  => 'required|string|max:255',
             'catatan'  => 'required|string|max:255',
-            'file' => 'required|file',
+            'file' => 'required|file|mimes:pdf',
             'status'  => 'required|string|max:255',
         ]);
 
-        $data = $request->all();
-        // $data['nomor_suratM'] = $this->generateNomorSurat();
+        $file = $request->file('file');
+        $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
+        $file->storeAs('public/doc/surat_masuk/', $nama_file);
+        suratmasuk::create($validated);
+        return redirect()->route('surat_masuk.index')->with('success', 'nomor surat berhasil disimpan');
 
-        suratkeluar::create([
-            'nomor_suratM' => $data['nomor_suratM'],
-            'perihal_m' => $data['perihal_m'],
-            'nama_penerima' => $data['nama_penerima'],
-            'hari_m' => $data['hari_m'],
-            'tanggal_surat' => $data['tanggal_surat'],
-            'tempat' => $data['tempat'],
-            'acara' => $data['acara'],
-            'pakaian' => $data['pakaian'],
-            'catatan' => $data['catatan'],
-            'nomor_suratK' => $data['nomor_suratK'],
-            'file'   => $data['file'],
-            'status' => $data['status']
-        ]);
-        return redirect()->route('surat_masuk.index')
-                         ->with('success', 'surat masuk berhasil disimpan');
     }
     /**
      * Display the specified resource.
@@ -161,7 +148,7 @@ class SuratmasukController extends Controller
             'file' => 'required|file',
             'status'  => 'required|string|max:255',
         ]);
-        
+
         $suratmasuk->update($request->all());
         return redirect()->route(surat_masuk.index)->with('success', 'surat masuk berhasil done');
     }

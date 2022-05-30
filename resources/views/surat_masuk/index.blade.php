@@ -7,13 +7,13 @@
     <div class="animated fadeIn">
       <div class="row">
         <div class="col-md-12">
-        <?php $a =auth::user()->isAdmin ?>
-          <div class="card">
-            <div class="card-header">
-                <div class="card-header" >
-                    <h5>Data Nomor Surat</h5>
-                        </div>
-                            <br></br>
+            <?php $a =auth::user()->isAdmin ?>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header" >
+                            <h5>Data Surat Masuk</h5>
+                                </div>
+                            <br> </br>
                             @if($a=="1")
                         <a href="{{route('surat_masuk.create')}}" type="button" class="btn btn-danger btn-sm"><i class="fa fa-plus"></i> Create</a>
                     @endif
@@ -37,16 +37,15 @@
                       <th class="text-center">Actions</th>
                       </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
+                    <tbody> </tbody>
                   </table>
                 </div>
-              </div>                      
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
+</div>
 <form id="delete-form" action="" method="POST" class="d-none">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <input type="hidden" name="_method" value="DELETE">
@@ -96,7 +95,7 @@
                 data: 'status',
             },
             {
-            
+
                 data: 'action',
             },
         ]
@@ -116,5 +115,5 @@
     }
 </script>
 @endpush
-</script>             
+</script>
 @endsection
