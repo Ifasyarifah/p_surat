@@ -11,7 +11,7 @@
           <div class="card">
             <div class="card-header">
                 <div class="card-header" >
-                    <h5>Data Nomor Surat</h5>
+                    <h5>Data Surat Keluar</h5>
                         </div>
                             <br></br>
                             @if($a=="1")

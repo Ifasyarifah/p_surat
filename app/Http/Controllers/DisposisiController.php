@@ -97,7 +97,7 @@ class DisposisiController extends Controller
 
         disposisi::create($validated);
         return redirect()->route('disposisi_surat.index')->with('success', 'nomor surat berhasil disimpan');
-
+    }
 
     /**
      * Display the specified resource.
@@ -107,7 +107,7 @@ class DisposisiController extends Controller
      */
     public function show(disposisi $disposisi)
     {
-        return view('disposisi_surat.edit', compact('disposisi');
+        return view('disposisi_surat.edit', compact('disposisi'));
     }
 
     /**

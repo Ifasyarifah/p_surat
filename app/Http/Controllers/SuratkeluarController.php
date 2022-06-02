@@ -144,7 +144,7 @@ class SuratkeluarController extends Controller
         ]);
 
         $suratkeluar->update($request->all());
-        return redirect()->route(surat_keluar.index)->with('success', 'surat keluar berhasil done');
+        return redirect()->route('surat_keluar.index')->with('success', 'surat keluar berhasil done');
     }
 
     /**
@@ -153,10 +153,10 @@ class SuratkeluarController extends Controller
      * @param  \App\suratkeluar $suratkeluar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(suratkeluar $suratkeluar)
+    public function destroy(suratkeluar $surat_keluar)
     {
-        $suratkeluar->delete();
-        return redirect()->route(surat_keluar.index)->with('success', 'surat keluar berhasil delete');
+        $surat_keluar->delete();
+        return redirect()->route('surat_keluar.index')->with('success', 'surat keluar berhasil delete');
     }
 
     private function generateNomorSurat()

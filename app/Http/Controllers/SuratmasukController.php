@@ -27,9 +27,6 @@ class SuratmasukController extends Controller
         $auth = Auth::user();
         if ($request->ajax()) {
             return DataTables::of($datas)
-                    ->addColumn('nomor_suratM', function($row){
-                        return $row->nomor_suratM;
-                    })
                     ->addColumn('perihal_m', function($row){
                         return $row->perihal_k;
                     })
@@ -150,7 +147,7 @@ class SuratmasukController extends Controller
         ]);
 
         $suratmasuk->update($request->all());
-        return redirect()->route(surat_masuk.index)->with('success', 'surat masuk berhasil done');
+        return redirect()->route('surat_masuk.index')->with('success', 'surat masuk berhasil done');
     }
 
     /**
@@ -162,7 +159,7 @@ class SuratmasukController extends Controller
     public function destroy(suratmasuk $suratmasuk)
     {
         $suratmasuk->delete();
-        return redirect()->route(surat_masuk.index)->with('success', 'surat masuk berhasil delete');
+        return redirect()->route('surat_masuk.index')->with('success', 'surat masuk berhasil delete');
     }
 
     // private function generateNomorSurat()

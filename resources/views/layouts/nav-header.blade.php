@@ -30,7 +30,8 @@
           </form>
         </div>
       </li>
-
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#logout">Logout</button>
+<form action="{{ route('logout') }}"></form>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>

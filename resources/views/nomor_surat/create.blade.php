@@ -20,7 +20,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                         <strong>Nomor Surat:</strong>
-                            <input type="number" name="nomor_suratK" class="form-control" placeholder="masukkan nomor surat">
+                            <input type="text" name="nomor_suratK" class="form-control" placeholder="masukkan nomor surat">
                             </div>
                         </div>
                     </div>

@@ -43,7 +43,7 @@
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                        <strong>Lokasi:</strong>
+                        <strong>Tujuan Surat:</strong>
                             <input type="text" name="tempat" class="form-control" placeholder="masukkan lokasi">
                             </div>
                         </div>

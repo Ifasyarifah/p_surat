@@ -23,7 +23,6 @@
                     <thead>
                       <tr>
                       <th>#</th>
-                      <th>Nomor Surat</th>
                       <th>Perihal</th>
                       <th>Nama Penerima</th>
                       <th>Hari</th>
@@ -37,7 +36,7 @@
                       <th class="text-center">Actions</th>
                       </tr>
                     </thead>
-                    <tbody> </tbody>
+                    <tbody></tbody>
                   </table>
                 </div>
               </div>
@@ -63,9 +62,6 @@
         "responsive": true,
         columns: [{
                 data: 'DT_RowIndex',
-            },
-            {
-                data: 'nomor_suratM',
             },
             {
                 data: 'perihal_m',
@@ -95,7 +91,6 @@
                 data: 'status',
             },
             {
-
                 data: 'action',
             },
         ]
