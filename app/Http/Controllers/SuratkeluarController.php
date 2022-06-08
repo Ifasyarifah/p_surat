@@ -109,6 +109,7 @@ class SuratkeluarController extends Controller
     {
         $request->validate([
             'tanggal_s'     => 'required|string|max:255',
+            'nomor_suratK'     => 'required|string|max:255',
             'lampiran'     => 'required|string|max:255',
             'perihal_k'     => 'required|string|max:255',
             'nama_pemohon' => 'required|string|max:255',
@@ -131,6 +132,7 @@ class SuratkeluarController extends Controller
 
         suratkeluar::create([
             'tanggal_s'         => $data['tanggal_s'],
+            'nomor_suratK'         => $data['nomor_suratK'],
             'lampiran'          => $data['lampiran'],
             'perihal_k'         => $data['perihal_k'],
             'nama_pemohon'      => $data['nama_pemohon'],
@@ -170,6 +172,7 @@ class SuratkeluarController extends Controller
     {
        $request->validate([
         'tanggal_s'     => 'required|string|max:255',
+        'nomor_suratK'     => 'required|string|max:255',
         'lampiran'     => 'required|string|max:255',
         'perihal_k'     => 'required|string|max:255',
         'nama_pemohon' => 'required|string|max:255',

@@ -34,16 +34,6 @@
                 Dashboard
               </p>
             </a>
-              <li class="nav-item">
-                <a href="{{ route('logout')}}" class="nav-link" 
-                onclick="
-                event.preventDefault();
-                document.getElementById('formLogout').submit();">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>logout</p>
-                </a>
-                <form id="formLogout" action="{{ route('logout') }}" method="POST">@csrf</form>             
-              </li>
           <li class="nav-item">
             <a href="{{ route('surat_masuk.index') }}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

@@ -31,7 +31,7 @@ class SuratmasukController extends Controller
                         return $row->nomor_suratM;
                      })
                     ->addColumn('perihal_m', function($row){
-                        return $row->perihal_k;
+                        return $row->perihal_m;
                     })
                     ->addColumn('nama_penerima', function($row){
                         return $row->nama_penerima;
@@ -160,9 +160,9 @@ class SuratmasukController extends Controller
      * @param  \App\suratmasuk $suratmasuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(suratmasuk $suratmasuk)
+    public function destroy(suratmasuk $surat_masuk)
     {
-        $suratmasuk->delete();
+        $surat_masuk->delete();
         return redirect()->route('surat_masuk.index')->with('success', 'surat masuk berhasil delete');
     }
 

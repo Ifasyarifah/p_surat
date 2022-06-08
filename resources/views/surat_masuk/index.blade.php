@@ -36,23 +36,6 @@
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nomor Surat</th>
-                                        <th>Perihal</th>
-                                        <th>Nama Penerima</th>
-                                        <th>Hari</th>
-                                        <th>Tanggal Surat</th>
-                                        <th>Tempat</th>
-                                        <th>Agenda</th>
-                                        <th>Pakaian</th>
-                                        <th>Catatan</th>
-                                        <th>File</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
