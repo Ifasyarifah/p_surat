@@ -27,6 +27,9 @@ class SuratmasukController extends Controller
         $auth = Auth::user();
         if ($request->ajax()) {
             return DataTables::of($datas)
+                    ->addColumn('nomor_suratM', function($row){
+                        return $row->nomor_suratM;
+                     })
                     ->addColumn('perihal_m', function($row){
                         return $row->perihal_k;
                     })
@@ -134,6 +137,7 @@ class SuratmasukController extends Controller
     public function update(Request $Request, suratmasuk $suratmasuk)
     {
        $request->validate([
+            'nomor_suratM'     => 'required|string|max:255',
             'perihal_m'     => 'required|string|max:255',
             'nama_penerima' => 'required|string|max:255',
             'hari_m'  => 'required|string|max:255',

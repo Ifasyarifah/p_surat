@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class suratkeluar extends Model
 {
     protected $table = "suratkeluars";
-    protected $fillable = ['nomor_suratK', 'perihal_k', 'nama_pemohon', 'tanggal_suratK', 'tempat', 'agenda', 'catatan', 'TTD'];
+    protected $fillable = ['tanggal_s', 'nomor_suratK', 'lampiran', 'perihal_k', 'nama_pemohon', 'tempat', 'isi', 'tujuan', 'hari', 'tgl', 'lokasi', 'agenda', 'catatan', 'TTD'];
 }

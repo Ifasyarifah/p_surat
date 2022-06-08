@@ -15,11 +15,17 @@ class CreateSuratkeluarsTable extends Migration
     {
         Schema::create('suratkeluars', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal_s');
             $table->integer('nomor_suratK');
+            $table->string('lampiran');
             $table->string('perihal_k');
             $table->string('nama_pemohon');
-            $table->date('tanggal_suratK');
             $table->string('tempat');
+            $table->string('isi');
+            $table->string('tujuan');
+            $table->string('hari');
+            $table->date('tgl');
+            $table->string('lokasi');
             $table->string('agenda');
             $table->string('catatan');
             $table->string('TTD');

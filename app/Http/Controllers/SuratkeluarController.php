@@ -27,14 +27,38 @@ class SuratkeluarController extends Controller
         $auth = Auth::user();
         if ($request->ajax()) {
             return DataTables::of($datas)
+                    ->addColumn('tanggal_s', function($row){
+                     return $row->tanggal_s;
+                    })
+                    ->addColumn('nomor_suratK', function($row){
+                        return $row->nomor_suratK;
+                       })
+                    ->addColumn('tanggal_s', function($row){
+                     return $row->tanggal_s;
+                    })
+                    ->addColumn('lampiran', function($row){
+                        return $row->lampiran;
+                    })
                     ->addColumn('perihal_k', function($row){
                         return $row->perihal_k;
                     })
                     ->addColumn('nama_pemohon', function($row){
                         return $row->nama_pemohon;
                     })
-                    ->addColumn('tanggal_suratK', function($row){
-                        return $row->tanggal_suratK;
+                    ->addColumn('tempat', function($row){
+                        return $row->tempat;
+                    })
+                    ->addColumn('isi', function($row){
+                        return $row->isi;
+                    })
+                    ->addColumn('tujuan', function($row){
+                        return $row->tujuan;
+                    })
+                    ->addColumn('hari', function($row){
+                        return $row->hari;
+                    })
+                    ->addColumn('tgl', function($row){
+                        return $row->tgl;
                     })
                     ->addColumn('tempat', function($row){
                         return $row->tempat;
@@ -84,10 +108,16 @@ class SuratkeluarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'tanggal_s'     => 'required|string|max:255',
+            'lampiran'     => 'required|string|max:255',
             'perihal_k'     => 'required|string|max:255',
             'nama_pemohon' => 'required|string|max:255',
-            'tanggal_suratK' => 'required|string|max:255',
-            'tempat'  => 'required|string|max:255',
+            'tempat'     => 'required|string|max:255',
+            'isi'     => 'required|string|max:255',
+            'tujuan'     => 'required|string|max:255',
+            'hari'     => 'required|string|max:255',
+            'tgl' => 'required|string|max:255',
+            'lokasi'  => 'required|string|max:255',
             'agenda' => 'required|string|max:255',
             'catatan'  => 'required|string|max:255',
             'TTD' => 'required|file',
@@ -100,10 +130,16 @@ class SuratkeluarController extends Controller
         $file->storeAs('public/doc/surat_keluar/', $nama_file);
 
         suratkeluar::create([
+            'tanggal_s'         => $data['tanggal_s'],
+            'lampiran'          => $data['lampiran'],
             'perihal_k'         => $data['perihal_k'],
             'nama_pemohon'      => $data['nama_pemohon'],
-            'tanggal_suratK'    => $data['tanggal_suratK'],
             'tempat'            => $data['tempat'],
+            'isi'               => $data['isi'],
+            'tujuan'            => $data['tujuan'],
+            'hari'              => $data['hari'],
+            'tgl'               => $data['tgl'],
+            'lokasi'            => $data['lokasi'],
             'agenda'            => $data['agenda'],
             'catatan'           => $data['catatan'],
             'nomor_suratK'      => $data['nomor_suratK'],
@@ -133,16 +169,20 @@ class SuratkeluarController extends Controller
     public function update(Request $Request, suratkeluar $suratkeluar)
     {
        $request->validate([
-            'nomor_suratK'   => 'required|string|max:255',
-            'periha_k'     => 'required|string|max:255',
-            'nama_pemohon' => 'required|string|max:255',
-            'tanggal_suratK' => 'required|string|max:255',
-            'tempat'  => 'required|string|max:255',
-            'agenda' => 'required|string|max:255',
-            'catatan'  => 'required|string|max:255',
-            'TTD' => 'required|file',
-        ]);
-
+        'tanggal_s'     => 'required|string|max:255',
+        'lampiran'     => 'required|string|max:255',
+        'perihal_k'     => 'required|string|max:255',
+        'nama_pemohon' => 'required|string|max:255',
+        'tempat'     => 'required|string|max:255',
+        'isi'     => 'required|string|max:255',
+        'tujuan'     => 'required|string|max:255',
+        'hari'     => 'required|string|max:255',
+        'tgl' => 'required|string|max:255',
+        'lokasi'  => 'required|string|max:255',
+        'agenda' => 'required|string|max:255',
+        'catatan'  => 'required|string|max:255',
+        'TTD' => 'required|file',
+       ]);
         $suratkeluar->update($request->all());
         return redirect()->route('surat_keluar.index')->with('success', 'surat keluar berhasil done');
     }

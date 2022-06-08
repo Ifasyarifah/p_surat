@@ -19,6 +19,22 @@
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
+                        <strong>Tanggal Surat:</strong>
+                            <input type="date" name="tanggal_s" class="form-control" placeholder="masukkan perihal">
+                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                        <strong>Lampiran:</strong>
+                            <input type="text" name="lampiran" class="form-control" placeholder="masukkan perihal">
+                             </div>
+                        </div>
+                    </div>
+                        <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
                         <strong>Perihal:</strong>
                             <input type="text" name="perihal_k" class="form-control" placeholder="masukkan perihal">
                              </div>
@@ -32,19 +48,43 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                        <strong>Tempat:</strong>
+                            <input type="text" name="tempat" class="form-control" placeholder="masukkan tempat">
+                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                        <strong>Isi Surat:</strong>
+                            <input type="text" name="isi" class="form-control" placeholder="masukkan isi">
+                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                        <strong>Tujuan Surat:</strong>
+                            <input type="text" name="tujuan" class="form-control" placeholder="masukkan Tujuan Surat">
+                             </div>
+                        </div>
+                    </div>
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                        <strong>Tgl/Bln/Thn Surat:</strong>
-                            <input type="date" name="tanggal_suratK" class="form-control" placeholder="tanggal_surat">
+                        <strong>Tgl/Wkt Surat:</strong>
+                            <input type="date" name="tgl" class="form-control" placeholder="tanggal_surat">
                             </div>
                         </div>
                     </div>
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                        <strong>Tujuan Surat:</strong>
-                            <input type="text" name="tempat" class="form-control" placeholder="masukkan lokasi">
+                        <strong>Lokasi:</strong>
+                            <input type="text" name="lokasi" class="form-control" placeholder="masukkan lokasi">
                             </div>
                         </div>
                     </div>
