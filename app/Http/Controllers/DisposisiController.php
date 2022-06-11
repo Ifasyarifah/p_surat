@@ -53,7 +53,7 @@ class DisposisiController extends Controller
                         $button = '';
 
                         $button .= '&nbsp;&nbsp;';
-                        $button .= '<a href="'.route('disposisi_surat.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-edit"></i></a>';
+                        $button .= '<a href="'.route('disposisi.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-edit"></i></a>';
 
                         $button .= '&nbsp;&nbsp;';
                         $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
@@ -64,7 +64,7 @@ class DisposisiController extends Controller
                     ->addIndexColumn()
                     ->make(true);
         }
-        return view('disposisi_surat.index',compact('datas'));
+        return view('disposisi.index',compact('datas'));
     }
 
     /**
@@ -74,7 +74,7 @@ class DisposisiController extends Controller
      */
     public function create()
     {
-        return view('disposisi_surat.create');
+        return view('disposisi.create');
     }
 
     /**
@@ -85,18 +85,18 @@ class DisposisiController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'asal_surat'     => 'required|string|max:255',
             'tanggal_diterima' => 'required|string|max:255',
             'nomor_agenda' => 'required|string|max:255',
             'tanggal_d'  => 'required|string|max:255',
             'nomor_disposisi' => 'required|string|max:255',
             'perihal'  => 'required|string|max:255',
-            'klarifikasi' => 'required|file',
+            'klarifikasi' => 'required|string|max:255',
         ]);
 
         disposisi::create($validated);
-        return redirect()->route('disposisi_surat.index')->with('success', 'nomor surat berhasil disimpan');
+        return redirect()->route('disposisi.index')->with('success', 'nomor surat berhasil disimpan');
     }
 
     /**
@@ -107,7 +107,7 @@ class DisposisiController extends Controller
      */
     public function show(disposisi $disposisi)
     {
-        return view('disposisi_surat.edit', compact('disposisi'));
+        return view('disposisi.edit', compact('disposisi'));
     }
 
     /**
@@ -142,7 +142,7 @@ class DisposisiController extends Controller
     public function destroy(disposisi $disposisi)
     {
         $disposisi->delete();
-        return redirect()->route('disposisi_surat.index')
+        return redirect()->route('disposisi.index')
                          ->with('success', 'disposisi  berhasil dihapus');
     }
 }

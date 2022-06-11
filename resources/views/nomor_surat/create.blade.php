@@ -7,14 +7,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Tambah Surat Masuk
+                    Tambah Nomor Surat
                 </div>
                 <div class="card-body">
                     <div class="button-action" style="margin-bottom: 20px">
-                        <a href="{{ route('surat_keluar.index') }}" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="{{ route('nomor_surat.index') }}" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
 
-                    <form action="{{ route('surat_keluar.store') }}" method="POST">
+                    <form action="{{ route('nomor_surat.store') }}" method="POST">
                         @csrf
                         <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">

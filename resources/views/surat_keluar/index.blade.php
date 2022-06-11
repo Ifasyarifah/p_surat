@@ -39,6 +39,26 @@
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tanggal Surat</th>
+                                        <th>Nomor Surat</th>
+                                        <th>Lampiran</th>
+                                        <th>Perihal</th>
+                                        <th>Nama Pemohon</th>
+                                        <th>Tempat</th>
+                                        <th>Isi</th>
+                                        <th>Tujuan</th>
+                                        <th>Hari</th>
+                                        <th>Tanggal/Waktu</th>
+                                        <th>Lokasi</th>
+                                        <th>Agenda</th>
+                                        <th>Catatan</th>
+                                        <th>TTD</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>

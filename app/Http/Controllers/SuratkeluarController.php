@@ -7,7 +7,7 @@ use App\Models\suratkeluar;
 use App\Models\suratmasuk;
 use App\Models\nomorsurat;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -76,9 +76,6 @@ class SuratkeluarController extends Controller
                         $button = '';
 
                         $button .= '&nbsp;&nbsp;';
-                        $button .= '<a href="'.route('nomor_surat.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-edit"></i></a>';
-
-                        $button .= '&nbsp;&nbsp;';
                         $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
 
                         return $button;
@@ -107,55 +104,57 @@ class SuratkeluarController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'tanggal_s'     => 'required|string|max:255',
-            'nomor_suratK'     => 'required|string|max:255',
-            'lampiran'     => 'required|string|max:255',
-            'perihal_k'     => 'required|string|max:255',
-            'nama_pemohon' => 'required|string|max:255',
-            'tempat'     => 'required|string|max:255',
-            'isi'     => 'required|string|max:255',
-            'tujuan'     => 'required|string|max:255',
-            'hari'     => 'required|string|max:255',
-            'tgl' => 'required|string|max:255',
-            'lokasi'  => 'required|string|max:255',
-            'agenda' => 'required|string|max:255',
-            'catatan'  => 'required|string|max:255',
-            'TTD' => 'required|file',
-        ]);
+            $validator = Validator::make($request->all(), [
+                'tanggal_s'     => 'required',
+                'nomor_suratK'  => 'required|string|max:255',
+                'lampiran'      => 'required|string|max:255',
+                'perihal_k'     => 'required|string|max:255',
+                'nama_pemohon'  => 'required|string|max:255',
+                'tempat'        => 'required|string|max:255',
+                'isi'           => 'required|string|max:255',
+                'tujuan'        => 'required|string|max:255',
+                'hari'          => 'required|string|max:255',
+                'tgl'           => 'required',
+                'lokasi'        => 'required|string|max:255',
+                'agenda'        => 'required|string|max:255',
+                'catatan'       => 'required|string|max:255',
+                'TTD'           => 'required|file',
+            ]);
 
-        $data = $request->all();
-        $data['nomor_suratK'] = $this->generateNomorSurat();
-        $file = $request->file('TTD');
-        $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
-        $file->storeAs('public/doc/surat_keluar/', $nama_file);
+            $data = $validator->validated();
+            $data['nomor_suratK'] = $this->generateNomorSurat();
+            $file = $request->file('TTD');
+            $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
+            $file->storeAs('public/doc/surat_keluar', $nama_file);
 
-        suratkeluar::create([
-            'tanggal_s'         => $data['tanggal_s'],
-            'nomor_suratK'         => $data['nomor_suratK'],
-            'lampiran'          => $data['lampiran'],
-            'perihal_k'         => $data['perihal_k'],
-            'nama_pemohon'      => $data['nama_pemohon'],
-            'tempat'            => $data['tempat'],
-            'isi'               => $data['isi'],
-            'tujuan'            => $data['tujuan'],
-            'hari'              => $data['hari'],
-            'tgl'               => $data['tgl'],
-            'lokasi'            => $data['lokasi'],
-            'agenda'            => $data['agenda'],
-            'catatan'           => $data['catatan'],
-            'nomor_suratK'      => $data['nomor_suratK'],
-            'TTD'               => $nama_file,
-        ]);
+            suratkeluar::create([
+                    'tanggal_s'         => $data['tanggal_s'],
+                    'nomor_suratK'      => $data['nomor_suratK'],
+                    'lampiran'          => $data['lampiran'],
+                    'perihal_k'         => $data['perihal_k'],
+                    'nama_pemohon'      => $data['nama_pemohon'],
+                    'tempat'            => $data['tempat'],
+                    'isi'               => $data['isi'],
+                    'tujuan'            => $data['tujuan'],
+                    'hari'              => $data['hari'],
+                    'tgl'               => $data['tgl'],
+                    'lokasi'            => $data['lokasi'],
+                    'agenda'            => $data['agenda'],
+                    'catatan'           => $data['catatan'],
+                    'TTD'               => $nama_file,
+            ]);
+
         return redirect()->route('surat_keluar.index')
                          ->with('success', 'surat keluar berhasil disimpan');
-    }
+        }
     /**
      * Display the specified resource.
      *
      * @param  \App\suratkeluar $suratkeluar
      * @return \Illuminate\Http\Response
      */
+
+
     public function show(suratkeluar $suratkeluar)
     {
         return view('surat_keluar.edit', compact('suratkeluar'));
@@ -168,26 +167,29 @@ class SuratkeluarController extends Controller
      * @param  \App\suratkeluar $suratkeluar
      * @return \Illuminate\Http\Response
      */
+
+
     public function update(Request $Request, suratkeluar $suratkeluar)
     {
-       $request->validate([
-        'tanggal_s'     => 'required|string|max:255',
-        'nomor_suratK'     => 'required|string|max:255',
-        'lampiran'     => 'required|string|max:255',
-        'perihal_k'     => 'required|string|max:255',
-        'nama_pemohon' => 'required|string|max:255',
-        'tempat'     => 'required|string|max:255',
-        'isi'     => 'required|string|max:255',
-        'tujuan'     => 'required|string|max:255',
-        'hari'     => 'required|string|max:255',
-        'tgl' => 'required|string|max:255',
-        'lokasi'  => 'required|string|max:255',
-        'agenda' => 'required|string|max:255',
-        'catatan'  => 'required|string|max:255',
-        'TTD' => 'required|file',
-       ]);
-        $suratkeluar->update($request->all());
-        return redirect()->route('surat_keluar.index')->with('success', 'surat keluar berhasil done');
+            $request->validate([
+                    'tanggal_s'         => 'required|string|max:255',
+                    'nomor_suratK'      => 'required|string|max:255',
+                    'lampiran'          => 'required|string|max:255',
+                    'perihal_k'         => 'required|string|max:255',
+                    'nama_pemohon'      => 'required|string|max:255',
+                    'tempat'            => 'required|string|max:255',
+                    'isi'               => 'required|string|max:255',
+                    'tujuan'            => 'required|string|max:255',
+                    'hari'              => 'required|string|max:255',
+                    'tgl'               => 'required|string|max:255',
+                    'lokasi'            => 'required|string|max:255',
+                    'agenda'            => 'required|string|max:255',
+                    'catatan'           => 'required|string|max:255',
+                    'TTD'               => 'required|file',
+            ]);
+
+            $suratkeluar->update($request->all());
+            return redirect()->route('surat_keluar.index')->with('success', 'surat keluar berhasil done');
     }
 
     /**
@@ -196,6 +198,7 @@ class SuratkeluarController extends Controller
      * @param  \App\suratkeluar $suratkeluar
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(suratkeluar $surat_keluar)
     {
         $surat_keluar->delete();
