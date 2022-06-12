@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\nomorsurat;
-use App\Models\disposisi;
+use App\Models\User;
 use App\Models\suratkeluar;
 use App\Models\suratmasuk;
+use App\Models\nomorsurat;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use DataTables;
 use Auth;
@@ -67,9 +71,8 @@ class NomorsuratController extends Controller
             'prefix'   => 'required|string|max:255',
         ]);
 
-        nomorsurat::create($validated);
-        return redirect()->route('nomor_surat.index')
-                         ->with('success', 'nomor surat berhasil disimpan');
+        nomor_surat::create($validated);
+        return redirect()->route('nomor_surat.index')->with('success', 'nomor surat berhasil disimpan');
     }
 
     /**
@@ -89,7 +92,7 @@ class NomorsuratController extends Controller
      * @param  \App\Models\nomorsurat  $nomorsurat
      * @return \Illuminate\Http\Response
      */
-    public function edit(nomorsurat $nomor_surat)
+    public function edit(nomorsurat $nomorsurat)
     {
         return view('nomor_surat.edit', compact('nomor_surat'));
     }

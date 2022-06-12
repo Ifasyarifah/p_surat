@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Surat Keluar')
+@section('title', 'Disposisi Surat')
 @section('content')
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -12,13 +12,13 @@
                             <h3 class="card-title">Data Disposisi Surat</h3>
                             <div class="card-tools">
                                 @if ($a == '1')
-                                    <a href="{{ route('surat_keluar.create') }}" type="button"
+                                    <a href="{{ route('disposisi_surat.create') }}" type="button"
                                         class="btn btn-danger btn-sm pull-right"><i class="fa fa-plus"></i> Create</a>
                                 @endif
                             </div>
                         </div>
                         <div class="card-body">
-                            <table id="disposisi" class="table table-striped table-bordered">
+                            <table id="disposisisurat" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -30,7 +30,7 @@
                                         <th>Perihal</th>
                                         <th>Klarifikasi</th>
                                         <th class="text-center">Actions</th>
-                                        </tr>
+                                    </tr>
                                 </thead>
                             </table>
                         </div>
@@ -46,11 +46,11 @@
     <!-- script -->
     @push('custom-script')
     <script>
-        $('#disposisi').DataTable({
+        $('#disposisisurat').DataTable({
             processing: true,
             serverside: true,
             ajax: {
-                url: "{{ route('disposisi.index') }}",
+                url: "{{ route('disposisi_surat.index') }}",
                 type: 'GET',
             },
             "responsive": true,
@@ -78,6 +78,7 @@
                 {
                     data: 'klarifikasi',
                 },
+                {
                     data: 'action',
                 },
             ]
@@ -88,7 +89,7 @@
         }
         function confirmForm(e) {
             let id = e.getAttribute('data-id');
-            $('#delete-form').attr('action', '/disposisi/' + id);
+            $('#delete-form').attr('action', '/disposisi_surat/' + id);
             if (!confirm('Anda Yakin Ingin Menghapusnya ?')) {
                 event.preventDefault();
             } else {
@@ -98,4 +99,4 @@
     </script>
     @endpush
     </script>
-    @endsection
+@endsection

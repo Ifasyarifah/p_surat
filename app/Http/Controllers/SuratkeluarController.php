@@ -30,12 +30,6 @@ class SuratkeluarController extends Controller
                     ->addColumn('tanggal_s', function($row){
                      return $row->tanggal_s;
                     })
-                    ->addColumn('nomor_suratK', function($row){
-                        return $row->nomor_suratK;
-                       })
-                    ->addColumn('tanggal_s', function($row){
-                     return $row->tanggal_s;
-                    })
                     ->addColumn('lampiran', function($row){
                         return $row->lampiran;
                     })
@@ -106,7 +100,6 @@ class SuratkeluarController extends Controller
     {
             $validator = Validator::make($request->all(), [
                 'tanggal_s'     => 'required',
-                'nomor_suratK'  => 'required|string|max:255',
                 'lampiran'      => 'required|string|max:255',
                 'perihal_k'     => 'required|string|max:255',
                 'nama_pemohon'  => 'required|string|max:255',
@@ -173,7 +166,6 @@ class SuratkeluarController extends Controller
     {
             $request->validate([
                     'tanggal_s'         => 'required|string|max:255',
-                    'nomor_suratK'      => 'required|string|max:255',
                     'lampiran'          => 'required|string|max:255',
                     'perihal_k'         => 'required|string|max:255',
                     'nama_pemohon'      => 'required|string|max:255',

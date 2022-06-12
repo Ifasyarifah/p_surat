@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\SuratmasukController;
 use App\Http\Controllers\SuratkeluarController;
-use App\Http\Controllers\DisposisiController;
+use App\Http\Controllers\DisposisisuratController;
 use App\Http\Controllers\NomorsuratController;
 
 
@@ -38,7 +38,7 @@ Route::middleware(['auth', 'admin'])->group(function() {
  */
     Route::resource('surat_keluar', SuratkeluarController::class);
 
-    Route::resource('disposisi', DisposisiController::class);
+    Route::resource('disposisi_surat', DisposisisuratController::class);
 
     Route::resource('nomor_surat', NomorsuratController::class);
 

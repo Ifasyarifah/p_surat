@@ -2,6 +2,7 @@
 
 @section('title', 'Surat Keluar')
 @section('content')
+<section class="content">
     <div class="container-fluid">
         <div class="animated fadeIn">
             <div class="row">
@@ -66,6 +67,7 @@
             </div>
         </div>
     </div>
+</div>
     <form id="delete-form" action="" method="POST" class="d-none">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <input type="hidden" name="_method" value="DELETE">

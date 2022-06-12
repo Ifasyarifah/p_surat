@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\suratmasuk;
 use App\Models\suratkeluar;
-use App\Models\disposisi;
+use App\Models\disposisisurat;
 use App\Models\user;
 
 class HomeController extends Controller
@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $suratmasuk = suratmasuk::count();
         $suratkeluar = suratkeluar::count();
-        $disposisi = disposisi::count();
+        $disposisi = disposisisurat::count();
         $user = user::count();
 
         return view('dashboard', compact('suratmasuk', 'suratkeluar', 'disposisi', 'user'));

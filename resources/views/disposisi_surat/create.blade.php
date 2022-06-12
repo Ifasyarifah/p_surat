@@ -11,11 +11,11 @@
                     </div>
                     <div class="card-body">
                         <div class="button-action" style="margin-bottom: 20px">
-                            <a href="{{ route('disposisi.index') }}" class="btn btn-danger btn-sm"><i
+                            <a href="{{ route('disposisi_surat.index') }}" class="btn btn-danger btn-sm"><i
                                     class="fa fa-arrow-left"></i> Kembali</a>
                         </div>
 
-                        <form action="{{ route('disposisi.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('disposisi_surat.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -33,8 +33,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Tanggal Diterima:</strong>
-                                        <input type="text" name="tanggal_diterima" class="form-control"
-                                            placeholder="masukkan perihal">
+                                        <input type="date" name="tanggal_diterima" class="form-control"
+                                            placeholder="masukkan">
                                         @foreach ($errors->get('tanggal_diterima') as $message)
                                             <small class="text-danger">{{ $message }}</small>
                                         @endforeach

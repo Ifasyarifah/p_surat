@@ -135,16 +135,16 @@ class SuratmasukController extends Controller
     {
        $request->validate([
             'nomor_suratM'     => 'required|string|max:255',
-            'perihal_m'     => 'required|string|max:255',
-            'nama_penerima' => 'required|string|max:255',
-            'hari_m'  => 'required|string|max:255',
-            'tanggal_surat' => 'required|string|max:255',
-            'tempat'  => 'required|string|max:255',
-            'acara' => 'required|string|max:255',
-            'pakaian'  => 'required|string|max:255',
-            'catatan'  => 'required|string|max:255',
-            'file' => 'required|file',
-            'status'  => 'required|string|max:255',
+            'perihal_m'        => 'required|string|max:255',
+            'nama_penerima'    => 'required|string|max:255',
+            'hari_m'           => 'required|string|max:255',
+            'tanggal_surat'    => 'required|string|max:255',
+            'tempat'           => 'required|string|max:255',
+            'acara'            => 'required|string|max:255',
+            'pakaian'          => 'required|string|max:255',
+            'catatan'          => 'required|string|max:255',
+            'file'             => 'required|file',
+            'status'           => 'required|string|max:255',
         ]);
 
         $suratmasuk->update($request->all());

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Surat Keluar')
+@section('title', 'Nomor Surat')
 @section('content')
     <div class="container-fluid">
         <div class="animated fadeIn">
