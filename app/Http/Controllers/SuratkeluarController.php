@@ -70,6 +70,9 @@ class SuratkeluarController extends Controller
                         $button = '';
 
                         $button .= '&nbsp;&nbsp;';
+                        $button .= '<a href="'.route('surat_keluar.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-print"></i></a>';
+
+                        $button .= '&nbsp;&nbsp;';
                         $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
 
                         return $button;

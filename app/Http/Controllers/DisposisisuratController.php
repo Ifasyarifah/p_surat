@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use DataTables;
 use Auth;
+use PDF;
 
 class DisposisisuratController extends Controller
 {
@@ -53,7 +54,7 @@ class DisposisisuratController extends Controller
                         $button = '';
 
                         $button .= '&nbsp;&nbsp;';
-                        $button .= '<a href="'.route('disposisi_surat.edit',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-edit"></i></a>';
+                        $button .= '<a href="'.route('disposisi_surat.print',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-print"></i></a>';
 
                         $button .= '&nbsp;&nbsp;';
                         $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
@@ -66,6 +67,9 @@ class DisposisisuratController extends Controller
         }
         return view('disposisi_surat.index',compact('datas'));
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -155,6 +159,7 @@ class DisposisisuratController extends Controller
         $disposisi_surat->delete();
         return redirect()->route('disposisi_surat.index')->with('success', 'disposisi  berhasil dihapus');
     }
+
 }
 
 
