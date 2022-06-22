@@ -31,7 +31,9 @@
                 <br>
                 <br>
                 <br>
-                <font size="4"><u>LEMBAR DISPOSISI</u></font>
+                <font size="4"><u>SURAT KELUAR</u></font>
+                <br>
+                <br>
             </th>
             <td style="width: 10%;text-align:right;">
                 <img src="<?php echo $garuda_logo; ?>" style=" height:140px;">
@@ -41,13 +43,38 @@
 
         </tr>
     </table>
-    <table border="1" style="width: 100%;border-collapse: collapse;">
+    <table style="width: 100%;border-collapse: collapse;">
+        <font size="3" style="margin-left:500px;">Tanggal Surat : <?php echo $data['tanggal_s']; ?></font>
         <tr style="height:50px;">
-            <td colspan="2">Surat Dari : Komisi Informasi Pusat RI
+            <td colspan="2">Surat Dari : Komisi Informasi Kab.Sumenep</td>
         </tr>
         <tr>
-            <td style="width:50%;">Asal Surat : <?php echo $data['asal_surat']; ?></td>
-            <td style="width:50%;">Tanggal Diterima : <?php echo $data['tanggal_diterima']; ?></td>
+            <td style="width:50%;">Nomor Surat : <?php echo $data['nomor_suratK']; ?></td>
+        </tr>
+        <tr>
+            <td style="width:50%;">Lampiran : <?php echo $data['lampiran']; ?></td>
+        </tr>
+        <tr>
+            <td style="width:50%;">Perihal : <?php echo $data['perihal']; ?></td>
+        </tr>
+        <tr>
+            <td style="width:50%;">Kepada Yth. <br> <?php echo $data['nama_pemohon']; ?></td>
+        </tr>
+        <tr>
+            <td style="width:50%;">SUMENEP</td>
+        </tr>
+
+        <br>
+        <br>
+        <tr>
+
+            <td style="width:900%;"><br>Dengan hormat,
+                <br>
+                berdasarkan perintah majlis Komisioner yang menerima sengketa dengan nomor :
+                <br><?php echo $data['nomor_suratK']; ?>
+                Panitera Komisi Informasi Kabupaten Sumenep memanggil Bapak/ibu dan/atau kuasanya untuk hadir
+                dalam sidang Ajudikasi terkait Sengketa Informasi Publik Tersebut antara :
+            </td>
         </tr>
         <tr>
             <td style="width:50%;">Nomor Agenda : <?php echo $data['nomor_agenda']; ?></td>

@@ -1,7 +1,7 @@
 <body>
     <div class="row">
     <div style="width:20%;float:left;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Coat_of_arms_of_East_Java.svg" style=" height:140px; margin-left: 30px;">
+    <img src="{{ asset('') }}img/ki_logo.png" style=" height:140px; margin-left: 30px;">
     </div>
     <div style="width:60%; float:left;">
     <center>
@@ -11,13 +11,13 @@
     <br>
     <font size="4"><b>SEKOLAH MENENGAH KEJURUAN NEGERI 1 SUMENEP<b></font>
     <br>
-    <small>Jl. Truojoyo No. 298 Patean Telp.(0328) 664107, Fax.(0328) 673517</small>
+    <small>Jl. Wahidin Sudiro Husodo No.3, Gudang, Kolor, Kec. Kota Sumenep, Kabupaten Sumenep</small>
     <br>
-    <small>WebSite : <b><i>http://www.smkn1smn.sch.id</i></b>&nbsp &nbsp &nbsp  Email : info@smk1smn.sch.id</small>
+    <small>WebSite : <b><i>http://www.sumenepkab.go.id</i></b>&nbsp &nbsp &nbsp  Email : komisiinformasi.sumenep@gmail.com</small>
     <br>
     <font size="4"><u>SUMENEP</U></font>
     <br>
-    <font size="1" style="margin-left:400px;">Kode Post : 69451</font>
+    <font size="1" style="margin-left:400px;">Kode Post : 69417</font>
     </center>
     </div>
     <div style="width:20%;float:right;">

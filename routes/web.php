@@ -8,6 +8,9 @@ use App\Http\Controllers\SuratkeluarController;
 use App\Http\Controllers\DisposisisuratController;
 use App\Http\Controllers\NomorsuratController;
 use App\Http\Controllers\LaporandisposisiController;
+use App\Http\Controllers\LaporansuratkeluarController;
+
+
 
 
 
@@ -38,6 +41,9 @@ Route::middleware(['auth', 'admin'])->group(function() {
     Route::get('surat_masuk/delete-all',  [SuratmasukController::class, 'deleteAll'])->name('surat_masuk.deleteAll');
  */
     Route::resource('surat_keluar', SuratkeluarController::class);
+    Route::get('surat_keluar/print/{id?}',       [LaporansuratkeluarController::class, 'print'])->name('surat_keluar.print');
+    Route::get('surat_keluar/print_view/{id?}',  [LaporansuratkeluarController::class, 'printView']);
+
 
     Route::resource('disposisi_surat', DisposisisuratController::class);
     Route::get('disposisi_surat/print/{id?}',       [LaporandisposisiController::class, 'print'])->name('disposisi_surat.print');
