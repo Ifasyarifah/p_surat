@@ -48,8 +48,7 @@
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();document.getElementById('formLogout').submit();"
-                    class="dropdown-item">
+                    onclick="event.preventDefault();document.getElementById('form-logout').submit();"  class="dropdown-item">
                     <i class="fas fa-running mr-2"></i> Logout
                 </a>
             </div>
