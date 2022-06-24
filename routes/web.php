@@ -51,6 +51,8 @@ Route::middleware(['auth', 'admin'])->group(function() {
 
     Route::resource('nomor_surat', NomorsuratController::class);
 
+    // Route::resource('nomor_surat', PofileController::class);
+
 });
 
 

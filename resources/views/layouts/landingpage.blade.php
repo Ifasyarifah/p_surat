@@ -1,512 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <head>
 
-  <title>Lumia Bootstrap Template - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Template Mo">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="{{ asset('') }}landingpage/assets/img/favicon.png" rel="icon">
-  <link href="{{ asset('') }}landingpage/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <title>Komisi Informasi</title>
+<!--
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ART FACTORY
 
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('') }}landingpage/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{ asset('') }}landingpage/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="{{ asset('') }}landingpage/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="{{ asset('') }}landingpage/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="{{ asset('') }}landingpage/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+https://templatemo.com/tm-537-art-factory
 
-  <!-- Template Main CSS File -->
-  <link href="{{ asset('') }}landingpage/assets/css/style.css" rel="stylesheet">
+-->
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}landingpage/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}landingpage/assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}landingpage/assets/css/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}landingpage/assets/css/owl-carousel.css">
 
-  <!-- =======================================================
-  * Template Name: Lumia - v4.7.0
-  * Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
+    </head>
 
-<body>
+    <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center">
-
-      <div class="logo me-auto">
-        <h1><a href="index.html">Komisi Informasi Kab.Sumenep</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="{{ asset('') }}landingpage/assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#testimonials">Profile Komisioner</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-      <!-- .navbar -->
-
-      <div class="header-social-links d-flex align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
-
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-  </header><!-- End Header -->
+    <!-- ***** Preloader End ***** -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="container text-center text-md-left" data-aos="fade-up">
-      <h1>Welcome to <span>KI Website</span></h1>
-      {{-- <img src="{{ ('landingpage/assets/img/garuda.png') }}" alt="Girl in a jacket" width="100" height="100">
-      @auth
-        <a href="{{ route('home') }}" class="btn-get-started scrollto">Go to Dashboard</a>
-      @else
-      <a href="{{ route('login') }}" class="btn-get-started scrollto">Login Here</a>
-      @endauth --}}
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{{ asset('') }}landingpage/assets/images/ki_logo.png" class="logo">KOMISI INFORMASI</a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#welcome" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#about">About</a></li>
+                            <li class="scroll-to-section"><a href="#services">Profile</a></li>
+                            <li class="scroll-to-section"><a href="#frequently-question">Frequently Questions</a></li>
+
+                            <li class="scroll-to-section"><a href="#contact-us">Contact Us</a></li>
+                            <li class="scroll-to-section"><a href=" {{ route('login') }}">Login</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>Komisi Informasi <strong>Kab.Sumenep</strong></h1>
+                        <p>berfungsi menjalankan Undang-Undang Keterbukaan Informasi Publik dan peraturan Pelaksanaannya, menetapkan petunjuk teknis standar layanan Informasi Publik dan menyelesaikan Sengketa Informasi Publik melalui Mediasi dan/atau Ajudikasi nonlitigasi</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="{{ asset('') }}landingpage/assets/images/logo.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
     </div>
-  </section><!-- End Hero -->
+    <!-- ***** Welcome Area End ***** -->
 
-  <main id="main">
 
-    <!-- ======= What We Do Section ======= -->
-    <section id="what-we-do" class="what-we-do">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>What We Do</h2>
-          <p>Menerima, memeriksa, dan memutus permohonan penyelesaian Sengketa Informasi Publik</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End What We Do Section -->
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-8">
-            <img src="{{ asset('') }}landingpage/assets/img/about.jpg" class="img-fluid">
-          </div>
-
-          {{-- <div class="col-lg-6 pt-4 pt-lg-0">
-            <h3>Visi Dan Misi</h3>
-            <h5>Visi Komisi Informasi</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            </ul> --}}
-            <div class="row icon-boxes">
-              <div class="col-md-6">
-                <i class="bx bx-receipt"></i>
-                <h4>Visi Komisi </h4>
-                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-              </div>
-              <div class="col-md-6 mt-4 mt-md-0">
-                <i class="bx bx-cube-alt"></i>
-                <h4>Ullamco laboris nisi</h4>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-3 col-6">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Happy Clients</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-6">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hard Workers</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Counts Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="link-preview portfolio-lightbox" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">App 1</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Web 3</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">App 2</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-4.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Card 2</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-5.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Web 2</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-6.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">App 3</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-7.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Card 1</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-8.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Card 3</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                <a href="{{ asset('') }}landingpage/assets/img/portfolio/portfolio-9.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Web 1</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{{ asset('') }}landingpage/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{{ asset('') }}landingpage/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{{ asset('') }}landingpage/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{{ asset('') }}landingpage/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{{ asset('') }}landingpage/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fuga</p>
-        </div>
-
-        <div class="row mt-5 justify-content-center">
-
-          <div class="col-lg-10">
-
-            <div class="info-wrap">
-              <div class="row">
-                <div class="col-lg-4 info">
-                  <i class="bi bi-geo-alt"></i>
-                  <h4>Location:</h4>
-                  <p>A108 Adam Street<br>New York, NY 535022</p>
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <img src="{{ asset('') }}landingpage/assets/images/ki_logo.png" class="rounded img-fluid d-block mx-auto" alt="App">
                 </div>
-
-                <div class="col-lg-4 info mt-4 mt-lg-0">
-                  <i class="bi bi-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>info@example.com<br>contact@example.com</p>
+                <div class="right-text col-lg-5 col-md-12 col-sm-12 mobile-top-fix">
+                    <div class="left-heading">
+                        <h5>Visi Dan Misi Komisi Informasi Kab.Sumenep</h5>
+                    </div>
+                    <div class="left-text">
+                        <br>
+                        <p>“Terwujudnya Masyarakat Informasi yang Maju, Partisipatif, dan Berkepribadian Bangsa melalui Komisi Informasi yang Mandiri dan Berkeadilan menuju Indonesia Cerdas dan Sejahtera”.</p>
+                        <p>- Meningkatkan kesadaran kritis masyarakat agar mampu mengakses dan menggunakan informasi secara bertanggungjawab dan aktif berpartisipasi dalam proses pembuatan serta pelaksanaan kebijakan publik dengan mengoptimalkan pemanfaatan teknologi informasi.<br>- Menguatkan kelembagaan Komisi Infomasi melalui konsolidasi, publikasi dan pendalaman wawasan, kompetensi serta distribusi tanggungjawab sesuai prinsip kesetaraan dan keadilan.<br>- Mengoptimalkan kualitas kebijakan dan penyelesaian sengketa informasi publik dengan mengedepankan prinsip cepat, tepat waktu, biaya ringan dan sederhana.<br>- Membangun kemitraan dengan stakeholders demi mengakselerasi masyarakat informasi menuju Indonesia cerdas dan sejahtera.<br>- Meningkatkan kapasitas dan peran badan publik agar lebih proaktif dalam memberikan pelayanan informasi publik.
+                        {{-- <a href="#about2" class="main-button">Discover More</a> --}}
+                    </div>
                 </div>
-
-                <div class="col-lg-4 info mt-4 mt-lg-0">
-                  <i class="bi bi-phone"></i>
-                  <h4>Call:</h4>
-                  <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
-                </div>
-              </div>
             </div>
-
-          </div>
-
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
         </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
 
-      </div>
-    </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about2">
+        <div class="container">
+            <div class="row">
+                <div class="left-text col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix">
+                    <div class="left-heading">
+                        <h5>Curabitur aliquam eget tellus id porta</h5>
+                    </div>
+                    <p>Proin justo sapien, posuere suscipit tortor in, fermentum mattis elit. Aenean in feugiat purus.</p>
+                    <ul>
+                        <li>
+                            <img src="{{ asset('') }}landingpage/assets/images/about-icon-01.png" alt="">
+                            <div class="text">
+                                <h6>Nulla ultricies risus quis risus</h6>
+                                <p>You can use this website template for commercial or non-commercial purposes.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="{{ asset('') }}landingpage/assets/images/about-icon-02.png" alt="">
+                            <div class="text">
+                                <h6>Donec consequat commodo purus</h6>
+                                <p>You have no right to re-distribute this template as a downloadable ZIP file on any website.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="{{ asset('') }}landingpage/assets/images/about-icon-03.png" alt="">
+                            <div class="text">
+                                <h6>Sed placerat sollicitudin mauris</h6>
+                                <p>If you have any question or comment, please <a rel="nofollow" href="https://templatemo.com/contact">contact</a> us on TemplateMo.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-image col-lg-7 col-md-12 col-sm-12 mobile-bottom-fix-big" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <img src="{{ asset('') }}landingpage/assets/images/right-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('') }}landingpage/assets/vendor/purecounter/purecounter.js"></script>
-  <script src="{{ asset('') }}landingpage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="{{ asset('') }}landingpage/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="{{ asset('') }}landingpage/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="{{ asset('') }}landingpage/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="{{ asset('') }}landingpage/assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="{{ asset('') }}landingpage/assets/vendor/php-email-form/validate.js"></script>
+    <!-- ***** Features Small Start ***** -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="owl-carousel owl-theme">
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-01.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">First Box Service</h5>
+                        <p>Aenean vulputate massa sed neque consectetur, ac fringilla quam aliquet. Sed a enim nec eros tempor cursus at id libero.</p>
+                        <a href="#" class="main-button">Read More</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-02.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Second Box Title</h5>
+                        <p>Pellentesque vitae urna ut nisi viverra tristique quis at dolor. In non sodales dolor, id egestas quam. Aliquam erat volutpat. </p>
+                        <a href="#" class="main-button">Discover More</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-03.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Third Title Box</h5>
+                        <p>Quisque finibus libero augue, in ultrices quam dictum id. Aliquam quis tellus sit amet urna tincidunt bibendum.</p>
+                        <a href="#" class="main-button">More Detail</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-02.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Fourth Service Box</h5>
+                        <p>Fusce sollicitudin feugiat risus, tempus faucibus arcu blandit nec. Duis auctor dolor eu scelerisque vestibulum.</p>
+                        <a href="#" class="main-button">Read More</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-01.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Fifth Service Title</h5>
+                        <p>Curabitur aliquam eget tellus id porta. Proin justo sapien, posuere suscipit tortor in, fermentum mattis elit.</p>
+                        <a href="#" class="main-button">Discover</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-03.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Sixth Box Title</h5>
+                        <p>Ut nibh velit, aliquam vitae pellentesque nec, convallis vitae lacus. Aliquam porttitor urna ut pellentesque.</p>
+                        <a href="#" class="main-button">Detail</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-01.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Seventh Title Box</h5>
+                        <p>Sed a consequat velit. Morbi lectus sapien, vestibulum et sapien sit amet, ultrices malesuada odio. Donec non quam.</p>
+                        <a href="#" class="main-button">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Small End ***** -->
 
-  <!-- Template Main JS File -->
-  <script src="{{ asset('') }}landingpage/assets/js/main.js"></script>
 
-</body>
+    <!-- ***** Frequently Question Start ***** -->
+    <section class="section" id="frequently-question">
+        <div class="container">
+            <!-- ***** Section Title Start ***** -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                </div>
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="section-heading">
+                        <p>Vivamus venenatis eu mi ac mattis. Maecenas ut elementum sapien. Nunc euismod risus ac lobortis congue. Sed erat quam.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ***** Section Title End ***** -->
 
+            <div class="row">
+                <div class="left-text col-lg-6 col-md-6 col-sm-12">
+                    <h5>Class aptent taciti sociosqu ad litora torquent per conubia</h5>
+                    <div class="accordion-text">
+                        <p>Curabitur placerat diam in risus lobortis, laoreet porttitor est elementum. Nulla ultricies risus quis risus scelerisque, a aliquam tellus maximus. Cras pretium nulla ac convallis iaculis. Aenean bibendum erat vitae odio sodales, in facilisis tellus volutpat.</p>
+                        <p>Sed lobortis pellentesque magna ac congue. Suspendisse quis molestie magna, id eleifend ex. Ut mollis ultricies diam nec dictum. Morbi commodo hendrerit mi vel vulputate. Proin non tincidunt dui. Lorem ipsum dolor sit amet.</p>
+                        <span>Email: <a href="#">email@company.com</a><br></span>
+                        <a href="#contact-us" class="main-button">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="accordions is-first-expanded">
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>First Common Question</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>Duis vulputate porttitor urna sit amet pretium. Phasellus sed pulvinar eros, condimentum consequat ex. Suspendisse potenti.
+                                    <br><br>
+                                    Pellentesque maximus lorem sed elit imperdiet mattis. Duis posuere mauris ut eros rutrum sodales. Aliquam erat volutpat.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Second Question Answer</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>Sed odio elit, cursus sed consequat at, rutrum eget augue. Cras ac eros iaculis, tempor quam sit amet, scelerisque mi. Quisque eu risus eget nunc porttitor vestibulum at a ante.
+                                    <br><br>
+                                    Praesent ut placerat turpis, vel pellentesque dolor. Sed rutrum eleifend tortor, eu luctus orci sagittis in. In blandit fringilla mollis.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Third Answer for you</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>Proin feugiat ante ut vulputate rutrum. Nam quis erat turpis. Nullam maximus pharetra lorem, eu condimentum est iaculis ut. Pellentesque mattis ultrices dignissim.
+                                    <br><br>
+                                    Etiam et enim finibus, feugiat massa efficitur, finibus sapien. Sed cursus lacus quis arcu scelerisque, eget ornare risus maximus. Aenean non lectus id odio rhoncus pharetra.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Fourth Question Asked</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>Phasellus eu purus ornare, eleifend orci nec, egestas nulla. Sed sed aliquet sapien. Proin placerat, ipsum eu posuere blandit, tellus quam consectetur nisi, id sollicitudin diam ex at nisi.
+                                    <br><br>
+                                    Aenean fermentum eget turpis egestas semper. Sed finibus mollis venenatis. Praesent at sem in massa iaculis pharetra.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Fifth Ever Question</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>Quisque aliquet ipsum ut magna rhoncus, euismod lacinia elit rhoncus. Sed sapien elit, mollis ut ultricies quis, fermentum nec ante.
+                                    <br><br>
+                                    Sed nec ex nec tortor fermentum sollicitudin id ut ligula. Ut sagittis rutrum lectus, non sagittis ante euismod eu. </p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Sixth Sense Question</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>Suspendisse potenti. Ut dapibus leo ut massa vulputate semper. Pellentesque maximus lorem sed elit imperdiet mattis. Duis posuere mauris ut eros rutrum sodales. Aliquam erat volutpat.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Frequently Question End ***** -->
+
+
+    <!-- ***** Contact Us Start ***** -->
+    <section class="section" id="contact-us">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- ***** Contact Map Start ***** -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div id="map">
+                      <!-- How to change your own map point
+                           1. Go to Google Maps
+                           2. Click on your location point
+                           3. Click "Share" and choose "Embed map" tab
+                           4. Copy only URL and paste it within the src="" field below
+                    -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1197183.8373802372!2d-1.9415093691103689!3d6.781986417238027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb96f349e85efd%3A0xb8d1e0b88af1f0f5!2sKumasi+Central+Market!5e0!3m2!1sen!2sth!4v1532967884907" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- ***** Contact Map End ***** -->
+
+                <!-- ***** Contact Form Start ***** -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="post">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Full Name" required="" class="contact-field">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="email" type="text" id="email" placeholder="E-mail" required="" class="contact-field">
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <textarea name="message" rows="6" id="message" placeholder="Your Message" required="" class="contact-field"></textarea>
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <button type="submit" id="form-submit" class="main-button">Send It</button>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- ***** Contact Form End ***** -->
+            </div>
+        </div>
+    </section>
+    <!-- ***** Contact Us End ***** -->
+
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">Copyright &copy; 2020 Art Factory Company
+
+                . Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{{ asset('') }}landingpage/assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{ asset('') }}landingpage/assets/js/popper.js"></script>
+    <script src="{{ asset('') }}landingpage/assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="{{ asset('') }}landingpage/assets/js/owl-carousel.js"></script>
+    <script src="{{ asset('') }}landingpage/assets/js/scrollreveal.min.js"></script>
+    <script src="{{ asset('') }}landingpage/assets/js/waypoints.min.js"></script>
+    <script src="{{ asset('') }}landingpage/assets/js/jquery.counterup.min.js"></script>
+    <script src="{{ asset('') }}landingpage/assets/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="{{ asset('') }}landingpage/assets/js/custom.js"></script>
+
+  </body>
 </html>
