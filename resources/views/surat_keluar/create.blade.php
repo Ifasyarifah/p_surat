@@ -131,24 +131,8 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Hari:</strong>
-                                        <input type="text" name="hari"
-                                            class="form-control @error('hari') is-invalid @enderror"
-                                            value="{{ old('hari') }}" id="hari" name="hari"
-                                            placeholder="masukkan hari">
-                                        @error('hari')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
                                         <strong>Tgl/Wkt Surat:</strong>
-                                        <input type="date" name="tgl"
+                                        <input type="datetime" name="tgl"
                                             class="form-control @error('tgl') is-invalid @enderror"
                                             value="{{ old('tgl') }}" id="tgl" name="tgl" placeholder="tanggal_surat">
                                         @error('tgl')

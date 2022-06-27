@@ -49,7 +49,7 @@ class SuratkeluarController extends Controller
                         return $row->tujuan;
                     })
                     ->addColumn('hari', function($row){
-                        return $row->hari;
+                        return $this->getDay($row->tgl);
                     })
                     ->addColumn('tgl', function($row){
                         return $row->tgl;
@@ -109,7 +109,6 @@ class SuratkeluarController extends Controller
                 'tempat'        => 'required|string|max:255',
                 'isi'           => 'required|string|max:255',
                 'tujuan'        => 'required|string|max:255',
-                'hari'          => 'required|string|max:255',
                 'tgl'           => 'required',
                 'lokasi'        => 'required|string|max:255',
                 'agenda'        => 'required|string|max:255',
@@ -132,7 +131,6 @@ class SuratkeluarController extends Controller
                     'tempat'            => $data['tempat'],
                     'isi'               => $data['isi'],
                     'tujuan'            => $data['tujuan'],
-                    'hari'              => $data['hari'],
                     'tgl'               => $data['tgl'],
                     'lokasi'            => $data['lokasi'],
                     'agenda'            => $data['agenda'],
@@ -175,7 +173,6 @@ class SuratkeluarController extends Controller
                     'tempat'            => 'required|string|max:255',
                     'isi'               => 'required|string|max:255',
                     'tujuan'            => 'required|string|max:255',
-                    'hari'              => 'required|string|max:255',
                     'tgl'               => 'required|string|max:255',
                     'lokasi'            => 'required|string|max:255',
                     'agenda'            => 'required|string|max:255',
@@ -198,6 +195,10 @@ class SuratkeluarController extends Controller
     {
         $surat_keluar->delete();
         return redirect()->route('surat_keluar.index')->with('success', 'surat keluar berhasil delete');
+    }
+    private function getDay($date)
+    {
+        return \Carbon\Carbon::parse($date)->isoformat('dddd');
     }
 
     private function generateNomorSurat()

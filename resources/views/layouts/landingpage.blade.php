@@ -171,7 +171,7 @@ https://templatemo.com/tm-537-art-factory
                         <div class="icon">
                             <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-01.png" alt=""></i>
                         </div>
-                        <h5 class="service-title">First Box Service</h5>
+                        <h5 class="service-title"></h5>
                         <p>Aenean vulputate massa sed neque consectetur, ac fringilla quam aliquet. Sed a enim nec eros tempor cursus at id libero.</p>
                         <a href="#" class="main-button">Read More</a>
                     </div>

@@ -30,9 +30,11 @@ Route::get('/', function(){
 
 Auth::routes();
 Route::get('dashboard', [HomeController::class, 'index'])->name('home');
+Route::get('profile', [HomeController::class, 'profile'])->name('profile');
 
 Route::middleware(['auth', 'admin'])->group(function() {
     Route::get( '/member', [MemberController::class,'index']);
+
 
     Route::resource('surat_masuk', SuratmasukController::class);
     /* Route::get('surat_masuk/trash',	   [SuratmasukController::class, 'getDeleteSuratmasuk'])->name('surat_masuk.trash');
@@ -51,7 +53,8 @@ Route::middleware(['auth', 'admin'])->group(function() {
 
     Route::resource('nomor_surat', NomorsuratController::class);
 
-    // Route::resource('nomor_surat', PofileController::class);
+
+    // Route::resource('profile', HomeController::class);
 
 });
 

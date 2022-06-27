@@ -27,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $suratmasuk = suratmasuk::count();
         $suratkeluar = suratkeluar::count();
         $disposisi = disposisisurat::count();
@@ -34,4 +35,5 @@ class HomeController extends Controller
 
         return view('dashboard', compact('suratmasuk', 'suratkeluar', 'disposisi', 'user'));
     }
+
 }

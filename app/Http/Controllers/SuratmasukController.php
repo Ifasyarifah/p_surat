@@ -37,7 +37,7 @@ class SuratmasukController extends Controller
                         return $row->nama_penerima;
                     })
                     ->addColumn('hari_m', function($row){
-                        return $row->hari_m;
+                        return $this->getDay($row->tanggal_surat);
                     })
                     ->addColumn('tanggal_surat', function($row){
                         return $row->tanggal_surat;
@@ -96,7 +96,6 @@ class SuratmasukController extends Controller
             'nomor_suratM'     => 'required|string|max:255',
             'perihal_m'     => 'required|string|max:255',
             'nama_penerima' => 'required|string|max:255',
-            'hari_m'  => 'required|string|max:255',
             'tanggal_surat' => 'required|string|max:255',
             'tempat'  => 'required|string|max:255',
             'acara' => 'required|string|max:255',
@@ -137,7 +136,6 @@ class SuratmasukController extends Controller
             'nomor_suratM'     => 'required|string|max:255',
             'perihal_m'        => 'required|string|max:255',
             'nama_penerima'    => 'required|string|max:255',
-            'hari_m'           => 'required|string|max:255',
             'tanggal_surat'    => 'required|string|max:255',
             'tempat'           => 'required|string|max:255',
             'acara'            => 'required|string|max:255',
@@ -163,26 +161,11 @@ class SuratmasukController extends Controller
         return redirect()->route('surat_masuk.index')->with('success', 'surat masuk berhasil delete');
     }
 
-    // private function generateNomorSurat()
-    // {
-    //     $count  = suratkeluar::count();
-    //     $prefix = nomorsurat::first();
+    private function getDay($date)
+    {
+        return \Carbon\Carbon::parse($date)->isoFormat('dddd');
+    }
 
-    //     if ($count > 0) {
-    //         $count  = $count + 1;
-    //         $no     = sprintf("%03s", $count);
-    //     }else{
-    //         $no = "001";
-    //     }
 
-    //     if (empty($prefix)) {
-    //         $pref = "/KI. KAB.SMP/I/";
-    //     }else{
-    //         $pref = $prefix->prefix;
-    //     }
-
-    //     $no_prefix = $no.$pref.date('Y');
-    //     return $no_prefix;
-    // }
 
 }
