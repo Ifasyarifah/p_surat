@@ -30,10 +30,12 @@ Route::get('/', function(){
 
 Auth::routes();
 Route::get('dashboard', [HomeController::class, 'index'])->name('home');
-Route::get('profile', [HomeController::class, 'profile'])->name('profile');
+
 
 Route::middleware(['auth', 'admin'])->group(function() {
     Route::get( '/member', [MemberController::class,'index']);
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
+    Route::patch('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 
 
     Route::resource('surat_masuk', SuratmasukController::class);
@@ -54,7 +56,6 @@ Route::middleware(['auth', 'admin'])->group(function() {
     Route::resource('nomor_surat', NomorsuratController::class);
 
 
-    // Route::resource('profile', HomeController::class);
 
 });
 

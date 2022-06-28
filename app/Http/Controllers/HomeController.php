@@ -7,6 +7,7 @@ use App\Models\suratmasuk;
 use App\Models\suratkeluar;
 use App\Models\disposisisurat;
 use App\Models\user;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -35,5 +36,12 @@ class HomeController extends Controller
 
         return view('dashboard', compact('suratmasuk', 'suratkeluar', 'disposisi', 'user'));
     }
+
+    // public function Profile()
+    // {
+    //     $user = user::where('id', Auth::user()->id)->first();
+
+    //     return view('profile', compact());
+    // }
 
 }

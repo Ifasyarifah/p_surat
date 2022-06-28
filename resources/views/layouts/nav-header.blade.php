@@ -43,7 +43,7 @@
                 <span class="dropdown-item dropdown-header">Selamat Datang, <span class="text-weight-bold">
                         {{ auth()->user()->name }}</span></span>
                 <div class="dropdown-divider"></div>
-                <a href="{{route('profile')}}" class="dropdown-item">
+                <a href="{{route('profile.index')}}" class="dropdown-item">
                     <i class="fas fa-user-cog mr-2"></i> Profile
                 </a>
                 <div class="dropdown-divider"></div>
