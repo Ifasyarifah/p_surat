@@ -25,6 +25,7 @@ class CreateSuratkeluarsTable extends Migration
             $table->string('tujuan');
             $table->string('hari');
             $table->date('tgl');
+            $table->time('waktu');
             $table->string('lokasi');
             $table->string('agenda');
             $table->string('catatan');

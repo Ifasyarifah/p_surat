@@ -99,7 +99,10 @@
             <td style="width:50%;">Hari : <?php echo $data['hari']; ?></td>
         </tr>
         <tr>
-            <td style="width:50%;">Tgl/Bln/Thn Waktu : <?php echo $data['tgl']; ?></td>
+            <td style="width:50%;">Tgl/Bln/Thn  : <?php echo $data['tgl']; ?></td>
+        </tr>
+        <tr>
+            <td style="width:50%;">Waktu : <?php echo $data['waktu']; ?></td>
         </tr>
         <tr>
             <td style="width:50%;">Lokasi : <?php echo $data['lokasi']; ?></td>

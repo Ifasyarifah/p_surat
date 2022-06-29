@@ -169,59 +169,73 @@ https://templatemo.com/tm-537-art-factory
                 <div class="owl-carousel owl-theme">
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-01.png" alt=""></i>
+                            <i><img src="{{ asset('') }}landingpage/assets/images/badrol.jpeg" alt=""></i>
                         </div>
-                        <h5 class="service-title"></h5>
-                        <p>Aenean vulputate massa sed neque consectetur, ac fringilla quam aliquet. Sed a enim nec eros tempor cursus at id libero.</p>
-                        <a href="#" class="main-button">Read More</a>
+                        <h5 class="service-title">Badrul Akhmadi, S.Pd</h5>
+                        <p>Ketua Komisioner</p>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-02.png" alt=""></i>
+                            <i><img src="{{ asset('') }}landingpage/assets/images/adnan.jpeg" alt=""></i>
                         </div>
-                        <h5 class="service-title">Second Box Title</h5>
-                        <p>Pellentesque vitae urna ut nisi viverra tristique quis at dolor. In non sodales dolor, id egestas quam. Aliquam erat volutpat. </p>
-                        <a href="#" class="main-button">Discover More</a>
+                        <h5 class="service-title">Adnan, S.Sos</h5>
+                        <p>Wakil Komisioner</p>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-03.png" alt=""></i>
+                            <i><img src="{{ asset('') }}landingpage/assets/images/rudi.jpeg" alt=""></i>
                         </div>
-                        <h5 class="service-title">Third Title Box</h5>
+                        <h5 class="service-title">Rudi Hartono, SH. MH</h5>
                         <p>Quisque finibus libero augue, in ultrices quam dictum id. Aliquam quis tellus sit amet urna tincidunt bibendum.</p>
-                        <a href="#" class="main-button">More Detail</a>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-02.png" alt=""></i>
+                            <i><img src="{{ asset('') }}landingpage/assets/images/rifaie.jpeg" alt=""></i>
                         </div>
-                        <h5 class="service-title">Fourth Service Box</h5>
+                        <h5 class="service-title">Achmad Rifai, S.Ag</h5>
                         <p>Fusce sollicitudin feugiat risus, tempus faucibus arcu blandit nec. Duis auctor dolor eu scelerisque vestibulum.</p>
-                        <a href="#" class="main-button">Read More</a>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-01.png" alt=""></i>
+                            <i><img src="{{ asset('') }}landingpage/assets/images/acik.jpeg" alt=""></i>
                         </div>
-                        <h5 class="service-title">Fifth Service Title</h5>
+                        <h5 class="service-title">Mohammad Rasyid, M.Pd.I.</h5>
                         <p>Curabitur aliquam eget tellus id porta. Proin justo sapien, posuere suscipit tortor in, fermentum mattis elit.</p>
-                        <a href="#" class="main-button">Discover</a>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-03.png" alt=""></i>
+                            <i><img src="{{ asset('') }}landingpage/assets/images/sepri.jpeg" alt=""></i>
                         </div>
-                        <h5 class="service-title">Sixth Box Title</h5>
+                        <h5 class="service-title">Sepri</h5>
                         <p>Ut nibh velit, aliquam vitae pellentesque nec, convallis vitae lacus. Aliquam porttitor urna ut pellentesque.</p>
-                        <a href="#" class="main-button">Detail</a>
                     </div>
                     <div class="item service-item">
                         <div class="icon">
-                            <i><img src="{{ asset('') }}landingpage/assets/images/service-icon-01.png" alt=""></i>
+                            <i><img src="{{ asset('') }}landingpage/assets/images/ratna.jpeg" alt=""></i>
                         </div>
-                        <h5 class="service-title">Seventh Title Box</h5>
+                        <h5 class="service-title">Ratna</h5>
+                        <p>Ut nibh velit, aliquam vitae pellentesque nec, convallis vitae lacus. Aliquam porttitor urna ut pellentesque.</p>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/dita.jpeg" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Erdita Surya P.</h5>
+                        <p>Ut nibh velit, aliquam vitae pellentesque nec, convallis vitae lacus. Aliquam porttitor urna ut pellentesque.</p>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/eka.jpeg" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Eka Nur F.</h5>
                         <p>Sed a consequat velit. Morbi lectus sapien, vestibulum et sapien sit amet, ultrices malesuada odio. Donec non quam.</p>
-                        <a href="#" class="main-button">Read More</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="{{ asset('') }}landingpage/assets/images/faisal.jpeg" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Achmad Faisal</h5>
+                        <p>Ut nibh velit, aliquam vitae pellentesque nec, convallis vitae lacus. Aliquam porttitor urna ut pellentesque.</p>
                     </div>
                 </div>
             </div>

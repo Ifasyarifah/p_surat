@@ -131,11 +131,27 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Tgl/Wkt Surat:</strong>
-                                        <input type="datetime" name="tgl"
+                                        <strong>Tanggal Acara:</strong>
+                                        <input type="date" name="tgl"
                                             class="form-control @error('tgl') is-invalid @enderror"
-                                            value="{{ old('tgl') }}" id="tgl" name="tgl" placeholder="tanggal_surat">
+                                            value="{{ old('tgl') }}" id="tgl" name="tgl"
+                                            placeholder="masukkan Tujuan Surat">
                                         @error('tgl')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Waktu Acara:</strong>
+                                        <input type="text" name="waktu"
+                                            class="form-control @error('waktu') is-invalid @enderror"
+                                            value="{{ old('waktu') }}" id="time" name="waktu" placeholder="hh:mm">
+                                        @error('waktu')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -212,4 +228,13 @@
                 </div>
             </div>
         </div>
+
+        @push('custom-script')
+            <script>
+                var cleave = new Cleave('#time', {
+                    time: true,
+                    timePattern: ['h', 'm']
+                });
+            </script>
+        @endpush
     @endsection

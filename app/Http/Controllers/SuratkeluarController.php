@@ -54,6 +54,9 @@ class SuratkeluarController extends Controller
                     ->addColumn('tgl', function($row){
                         return $row->tgl;
                     })
+                    ->addColumn('waktu', function($row){
+                        return $row->waktu;
+                    })
                     ->addColumn('tempat', function($row){
                         return $row->tempat;
                     })
@@ -110,19 +113,23 @@ class SuratkeluarController extends Controller
                 'isi'           => 'required|string|max:255',
                 'tujuan'        => 'required|string|max:255',
                 'tgl'           => 'required',
+                'waktu'         =>  'required',
                 'lokasi'        => 'required|string|max:255',
                 'agenda'        => 'required|string|max:255',
                 'catatan'       => 'required|string|max:255',
                 'TTD'           => 'required|file',
             ]);
 
+
             $data = $validator->validated();
+            $data['hari'] = $this->getDay($data['tgl']);
             $data['nomor_suratK'] = $this->generateNomorSurat();
             $file = $request->file('TTD');
             $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
             $file->storeAs('public/doc/surat_keluar', $nama_file);
 
             suratkeluar::create([
+                    'hari'              => $data['hari'],
                     'tanggal_s'         => $data['tanggal_s'],
                     'nomor_suratK'      => $data['nomor_suratK'],
                     'lampiran'          => $data['lampiran'],
@@ -132,6 +139,7 @@ class SuratkeluarController extends Controller
                     'isi'               => $data['isi'],
                     'tujuan'            => $data['tujuan'],
                     'tgl'               => $data['tgl'],
+                    'waktu'             => $data['waktu'],
                     'lokasi'            => $data['lokasi'],
                     'agenda'            => $data['agenda'],
                     'catatan'           => $data['catatan'],
@@ -174,6 +182,7 @@ class SuratkeluarController extends Controller
                     'isi'               => 'required|string|max:255',
                     'tujuan'            => 'required|string|max:255',
                     'tgl'               => 'required|string|max:255',
+                    'waktu'               => 'required|string|max:255',
                     'lokasi'            => 'required|string|max:255',
                     'agenda'            => 'required|string|max:255',
                     'catatan'           => 'required|string|max:255',

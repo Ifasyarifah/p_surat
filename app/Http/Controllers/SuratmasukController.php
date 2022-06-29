@@ -55,7 +55,10 @@ class SuratmasukController extends Controller
                         return $row->catatan;
                     })
                     ->addColumn('file', function($row){
-                        return $row->file;
+                        $button = '&nbsp;&nbsp;';
+                        $button .= '<a href="'.Storage::url('public/doc/surat_masuk/'.$row->file).'" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-download"></i></a>';
+
+                        return $button;
                     })
                     ->addColumn('status', function($row){
                         return $row->status;
@@ -68,7 +71,7 @@ class SuratmasukController extends Controller
 
                         return $button;
                     })
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action', 'file'])
                     ->addIndexColumn()
                     ->make(true);
         }
@@ -105,8 +108,11 @@ class SuratmasukController extends Controller
             'status'  => 'required|string|max:255',
         ]);
 
+        $validated['hari_m'] = $this->getDay($validated['tanggal_surat']);
+
         $file = $request->file('file');
         $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
+        $validated['file'] = $nama_file;
         $file->storeAs('public/doc/surat_masuk/', $nama_file);
         suratmasuk::create($validated);
         return redirect()->route('surat_masuk.index')->with('success', 'nomor surat berhasil disimpan');
@@ -145,7 +151,11 @@ class SuratmasukController extends Controller
             'status'           => 'required|string|max:255',
         ]);
 
-        $suratmasuk->update($request->all());
+        $data = $request->all();
+        $data['hari_m'] = $this->getDay($data['tanggal_surat']);
+
+
+        $suratmasuk->update($data);
         return redirect()->route('surat_masuk.index')->with('success', 'surat masuk berhasil done');
     }
 

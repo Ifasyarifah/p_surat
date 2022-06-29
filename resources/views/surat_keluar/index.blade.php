@@ -32,7 +32,8 @@
                                         <th>Isi</th>
                                         <th>Tujuan</th>
                                         <th>Hari</th>
-                                        <th>Tanggal/Waktu</th>
+                                        <th>Tanggal Acara</th>
+                                        <th>Waktu Acara</th>
                                         <th>Lokasi</th>
                                         <th>Agenda</th>
                                         <th>Catatan</th>
@@ -52,7 +53,8 @@
                                         <th>Isi</th>
                                         <th>Tujuan</th>
                                         <th>Hari</th>
-                                        <th>Tanggal/Waktu</th>
+                                        <th>Tanggal Acara</th>
+                                        <th>Waktu Acara</th>
                                         <th>Lokasi</th>
                                         <th>Agenda</th>
                                         <th>Catatan</th>
@@ -115,6 +117,9 @@
                     },
                     {
                         data: 'tgl',
+                    },
+                    {
+                        data: 'waktu',
                     },
                     {
                         data: 'lokasi',
