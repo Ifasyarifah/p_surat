@@ -60,14 +60,14 @@
                          </p>
                      </a>
                  </li>
-                 <li class="nav-item">
+                 {{-- <li class="nav-item">
                      <a href="{{ route('nomor_surat.index') }}" class="nav-link">
                          <i class="nav-icon fas fa-copy"></i>
                          <p>
                              Nomor Surat
                          </p>
                      </a>
-                 </li>
+                 </li> --}}
 
          </nav>
          <!-- /.sidebar-menu -->
