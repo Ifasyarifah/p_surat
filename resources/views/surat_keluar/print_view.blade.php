@@ -29,31 +29,20 @@
                 <br>
                 <font size="1" style="margin-left:300px;">Kode Post : 69417</font>
                 <br>
-                <br>
-                <br>
-                <font size="4"><u>SURAT KELUAR</u></font>
-                <br>
-                <br>
             </th>
             <td style="width: 10%;text-align:right;">
                 <img src="<?php echo $garuda_logo; ?>" style=" height:140px;">
                 </th>
         </tr>
-        <tr>
-
-        </tr>
+        <td colspan="3">
+            <hr>
+        </td>
     </table>
     <table style="width: 100%;border-collapse: collapse;">
         <font size="3" style="margin-left:500px;">Sumenep, <?php echo $data['tanggal_s']; ?></font>
-        <tr style="height:50px;">
-            <td colspan="2">Surat Dari : Komisi Informasi Kab.Sumenep</td>
-        </tr>
-        <tr>
-            <td style="width:50%;">Nomor Surat : <?php echo $data['nomor_suratK']; ?></td>
-        </tr>
-        <tr>
-            <td style="width:50%;">Lampiran : <?php echo $data['lampiran']; ?></td>
-        </tr>
+        <font size="3" style="margin-right:300px;">Nomor: <?php echo $data['nomor_suratK']; ?></font>
+        <br>
+        <font size="3" style="margin-right:500px;">Lampiran : <?php echo $data['lampiran']; ?></font>
         <tr>
             <td style="width:50%;">Perihal : <?php echo $data['perihal']; ?></td>
         </tr>
@@ -63,27 +52,26 @@
         <tr>
             <td style="width:50%;">SUMENEP</td>
         </tr>
-
         <br>
         <br>
         <tr>
-
-            <td style="width:900%;"><br>Dengan hormat,
+            <td colspan="3"><br>Dengan hormat ,
                 <br>
-                berdasarkan perintah majlis Komisioner yang menerima sengketa dengan nomor :
-                <br><?php echo $data['nomor_suratK']; ?>
+                <br>
+                &nbsp &nbsp &nbsp Berdasarkan perintah majlis Komisioner yang menerima sengketa dengan nomor
+                <?php echo $data['nomor_suratK']; ?>
                 Panitera Komisi Informasi Kabupaten Sumenep memanggil Bapak/ibu dan/atau kuasanya untuk hadir
                 dalam sidang Ajudikasi terkait Sengketa Informasi Publik Tersebut antara :
             </td>
         </tr>
         <tr>
 
-            <td style="width:900%;"><br><?php echo $data['nama_pemohon']; ?>
+            <td style="width:900%;" align="center"><br><?php echo $data['nama_pemohon']; ?>
                 Sebagai Pemohon Terhadap :
                 <br>
                 PEMERINTAH DAERAH KAB.SUMENEP sebagai Termohon :
                 <br>
-            <br>
+                <br>
             </td>
         </tr>
         <tr>
@@ -91,7 +79,7 @@
             <br>
             <td style="width:900%;">yang akan diselenggarakan pada :
                 <br>
-                Sebagai Pemohon Terhadap :
+
                 <br>
             </td>
         </tr>
@@ -99,7 +87,7 @@
             <td style="width:50%;">Hari : <?php echo $data['hari']; ?></td>
         </tr>
         <tr>
-            <td style="width:50%;">Tgl/Bln/Thn  : <?php echo $data['tgl']; ?></td>
+            <td style="width:50%;">Tgl/Bln/Thn : <?php echo $data['tgl']; ?></td>
         </tr>
         <tr>
             <td style="width:50%;">Waktu : <?php echo $data['waktu']; ?></td>
@@ -113,7 +101,21 @@
         <tr>
             <td style="width:50%;">Catatan : <?php echo $data['catatan']; ?></td>
         </tr>
+
+        </div>
     </table>
+    <div style="width:30%;float:right;">
+        <center>
+            <font size="2" align="left">Komisi Informasi Kab.Sumenep</font>
+            <br>
+            <img src="<?php echo $ki_logo; ?>" style=" height:90px">
+            <br>
+            <font size="3">Badrul
+                Akhmadi, S.Pd
+                <hr>
+            </font>
+            <font size="2">Ketua Komisioner</font>
+        </center>
 
 </body>
 

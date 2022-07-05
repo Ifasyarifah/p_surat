@@ -32,11 +32,11 @@
                                         <th>Isi</th>
                                         <th>Tujuan</th>
                                         <th>Hari</th>
-                                        <th>Tanggal Acara</th>
+                                        <th>Tanggal Acaras</th>
                                         <th>Waktu Acara</th>
                                         <th>Lokasi</th>
                                         <th>Agenda</th>
-                                        <th>Catatan</th>
+                                        {{-- <th>Catatan</th> --}}
                                         <th>TTD</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
@@ -57,7 +57,7 @@
                                         <th>Waktu Acara</th>
                                         <th>Lokasi</th>
                                         <th>Agenda</th>
-                                        <th>Catatan</th>
+                                        {{-- <th>Catatan</th> --}}
                                         <th>TTD</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
@@ -127,9 +127,9 @@
                     {
                         data: 'agenda',
                     },
-                    {
-                        data: 'catatan',
-                    },
+                    // {
+                    //     data: 'catatan',
+                    // },
                     {
                         data: 'TTD',
                     },

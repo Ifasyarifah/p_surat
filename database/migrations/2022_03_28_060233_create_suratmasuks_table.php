@@ -25,7 +25,6 @@ class CreateSuratmasuksTable extends Migration
             $table->string('pakaian');
             $table->string('catatan');
             $table->string('file');
-            $table->string('status');
             $table->timestamps();
         });
     }

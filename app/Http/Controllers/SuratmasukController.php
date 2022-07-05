@@ -55,19 +55,17 @@ class SuratmasukController extends Controller
                         return $row->catatan;
                     })
                     ->addColumn('file', function($row){
+
                         $button = '&nbsp;&nbsp;';
                         $button .= '<a href="'.Storage::url('public/doc/surat_masuk/'.$row->file).'" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-download"></i></a>';
 
                         return $button;
                     })
-                    ->addColumn('status', function($row){
-                        return $row->status;
-                    })
                     ->addColumn('action', function($row)use($auth){
                         $button = '';
 
-                        $button .= '&nbsp;&nbsp;';
-                        $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+                        // $button .= '&nbsp;&nbsp;';
+                        // $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
 
                         return $button;
                     })
@@ -105,7 +103,6 @@ class SuratmasukController extends Controller
             'pakaian'  => 'required|string|max:255',
             'catatan'  => 'required|string|max:255',
             'file' => 'required|file|mimes:pdf',
-            'status'  => 'required|string|max:255',
         ]);
 
         $validated['hari_m'] = $this->getDay($validated['tanggal_surat']);
@@ -148,7 +145,7 @@ class SuratmasukController extends Controller
             'pakaian'          => 'required|string|max:255',
             'catatan'          => 'required|string|max:255',
             'file'             => 'required|file',
-            'status'           => 'required|string|max:255',
+
         ]);
 
         $data = $request->all();

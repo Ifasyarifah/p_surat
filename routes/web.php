@@ -39,11 +39,9 @@ Route::middleware(['auth', 'admin'])->group(function() {
 
 
     Route::resource('surat_masuk', SuratmasukController::class);
-    /* Route::get('surat_masuk/trash',	   [SuratmasukController::class, 'getDeleteSuratmasuk'])->name('surat_masuk.trash');
-    Route::get('surat_masuk/restore/{id}',[SuratmasukController::class, 'restore'])->name('surat_masuk.restore');
-    Route::get('surat_masuk/restore-all', [SuratmasukController::class, 'restoreAll'])->name('surat_masuk.restoreAll');
-    Route::get('surat_masuk/delete-all',  [SuratmasukController::class, 'deleteAll'])->name('surat_masuk.deleteAll');
- */
+    Route::get('surat_masuk/print/{id?}',       [LaporansuratmasukController::class, 'print'])->name('surat_masuk.print');
+    Route::get('surat_masuk/print_view/{id?}',  [LaporansuratmasukController::class, 'printView']);
+
     Route::resource('surat_keluar', SuratkeluarController::class);
     Route::get('surat_keluar/print/{id?}',       [LaporansuratkeluarController::class, 'print'])->name('surat_keluar.print');
     Route::get('surat_keluar/print_view/{id?}',  [LaporansuratkeluarController::class, 'printView']);

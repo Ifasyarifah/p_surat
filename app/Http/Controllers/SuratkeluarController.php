@@ -63,9 +63,9 @@ class SuratkeluarController extends Controller
                     ->addColumn('agenda', function($row){
                         return $row->agenda;
                     })
-                    ->addColumn('catatan', function($row){
-                        return $row->catatan;
-                    })
+                    // ->addColumn('catatan', function($row){
+                    //     return $row->catatan;
+                    // })
                     ->addColumn('TTD', function($row){
                         return '<img src="'.asset('storage/doc/surat_keluar/'.$row->TTD).'" width="100px"/>';
                     })

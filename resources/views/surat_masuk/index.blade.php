@@ -32,7 +32,6 @@
                                         <th>Pakaian</th>
                                         <th>Catatan</th>
                                         <th>File</th>
-                                        <th>Status</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -90,9 +89,6 @@
                     },
                     {
                         data: 'file',
-                    },
-                    {
-                        data: 'status',
                     },
                     {
                         data: 'action',
