@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\suratkeluar;
 use App\Models\suratmasuk;
+use App\Models\disposisisurat;
 use App\Models\nomorsurat;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
@@ -23,7 +24,7 @@ class SuratmasukController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = suratmasuk::all();
+        $datas = suratmasuk::orderBy('status','ASC')->get();
         $auth = Auth::user();
         if ($request->ajax()) {
             return DataTables::of($datas)
@@ -62,10 +63,17 @@ class SuratmasukController extends Controller
                         return $button;
                     })
                     ->addColumn('action', function($row)use($auth){
-                        $button = '';
-
-                        // $button .= '&nbsp;&nbsp;';
-                        // $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+                        $disposisi = disposisisurat::where('nomor_suratM', $row->nomor_suratM)->first();
+                        if ($disposisi != null) {
+                            $button = '<span class="badge badge-success">Telah didisposisi</span>';
+                        } else {
+                            $button = '<form method="POST" action="'.route('disposisi_surat.store').'" class="d-inline">
+                            <input type="hidden" name="_token" value="'.csrf_token().'" />
+                            <input type="hidden" name="nomor_suratM" value="'.$row->nomor_suratM.'" />
+                            <button type="submit" class="btn btn-sm btn-primary">Proses <span
+                                    class="fa fa-paper-plane"></span></button>
+                            </form>';
+                        }
 
                         return $button;
                     })
@@ -106,6 +114,7 @@ class SuratmasukController extends Controller
         ]);
 
         $validated['hari_m'] = $this->getDay($validated['tanggal_surat']);
+        $validated['status'] = 'menunggu';
 
         $file = $request->file('file');
         $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
@@ -123,7 +132,7 @@ class SuratmasukController extends Controller
      */
     public function show(suratmasuk $suratmasuk)
     {
-        return view('surat_masuk.edit', compact('suratmasuk'));
+        return view('surat_masuk.report', compact('suratmasuk'));
     }
 
     /**

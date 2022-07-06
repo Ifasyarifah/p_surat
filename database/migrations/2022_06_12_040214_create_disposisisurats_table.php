@@ -15,13 +15,15 @@ class CreateDisposisisuratsTable extends Migration
     {
         Schema::create('disposisisurats', function (Blueprint $table) {
             $table->id();
-            $table->string('asal_surat');
-            $table->date('tanggal_diterima');
-            $table->integer('nomor_agenda');
-            $table->date('tanggal_d');
-            $table->integer('nomor_disposisi');
-            $table->string('perihal');
-            $table->string('klarifikasi');
+            $table->integer('nomor_suratM');
+            $table->string('perihal_m');
+            $table->string('nama_penerima');
+            $table->string('hari_m');
+            $table->datetime('tanggal_surat');
+            $table->string('tempat');
+            $table->string('acara');
+            $table->string('pakaian');
+            $table->string('catatan');
             $table->timestamps();
         });
     }

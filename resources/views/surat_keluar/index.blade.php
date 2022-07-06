@@ -127,9 +127,9 @@
                     {
                         data: 'agenda',
                     },
-                    // {
-                    //     data: 'catatan',
-                    // },
+                    {
+                        data: 'catatan',
+                    },
                     {
                         data: 'TTD',
                     },

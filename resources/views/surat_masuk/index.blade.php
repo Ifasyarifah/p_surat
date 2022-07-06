@@ -12,6 +12,13 @@
                             <h3 class="card-title">Data Surat Masuk</h3>
                             <div class="card-tools">
                                 @if ($a == '1')
+                                    <form action="{{ route('generatePDF') }}" method="POST">
+                                        @csrf
+                                        <input style="margin-right:500px;" type="date" name="start_date" placeholder="Start Date" class="form-control"> To
+                                        <input type="date" name="end_date" placeholder="End Date" class="form-control">
+
+                                        <input type="submit" class="btn btn-primary" value="Cetak">
+                                    </form>
                                     <a href="{{ route('surat_masuk.create') }}" type="button"
                                         class="btn btn-danger btn-sm pull-right"><i class="fa fa-plus"></i> Create</a>
                                 @endif
@@ -111,6 +118,7 @@
                 }
             }
         </script>
+
     @endpush
     </script>
 @endsection

@@ -9,6 +9,7 @@ use App\Http\Controllers\DisposisisuratController;
 use App\Http\Controllers\NomorsuratController;
 use App\Http\Controllers\LaporandisposisiController;
 use App\Http\Controllers\LaporansuratkeluarController;
+use App\Http\Controllers\ReportController;
 
 
 
@@ -41,6 +42,10 @@ Route::middleware(['auth', 'admin'])->group(function() {
     Route::resource('surat_masuk', SuratmasukController::class);
     Route::get('surat_masuk/print/{id?}',       [LaporansuratmasukController::class, 'print'])->name('surat_masuk.print');
     Route::get('surat_masuk/print_view/{id?}',  [LaporansuratmasukController::class, 'printView']);
+    Route::get('surat_masuk/report/{id?}',      [ReportController::class, 'report'])->name('surat_masuk.report');
+    Route::get('surat_masuk/report_pdf/{id?}',  [ReportController::class, 'reportPdf']);
+    Route::post('surat_masuk/generate_pdf', [ReportController::class, 'generatePDF'])->name('generatePDF');
+
 
     Route::resource('surat_keluar', SuratkeluarController::class);
     Route::get('surat_keluar/print/{id?}',       [LaporansuratkeluarController::class, 'print'])->name('surat_keluar.print');

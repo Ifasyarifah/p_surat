@@ -85,7 +85,7 @@
 
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/dist/js/adminlte.min.js?v=3.2.0') }}"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="{{ asset('') }}assets/dist/js/demo.js"></script> --}}
 

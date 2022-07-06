@@ -89,18 +89,33 @@ class DisposisisuratController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'asal_surat'     => 'required|string|max:255',
-            'tanggal_diterima' => 'required|string|max:255',
-            'nomor_agenda' => 'required|string|max:255',
-            'tanggal_d'  => 'required|string|max:255',
-            'nomor_disposisi' => 'required|string|max:255',
-            'perihal'  => 'required|string|max:255',
-            'klarifikasi' => 'required|string|max:255',
-        ]);
+        $suratmasuk = suratmasuk::where('nomor_suratM', $request->nomor_suratM)->first();
+        DB::beginTransaction();
+        try {
+            $suratmasuk->update([
+                'status' => 'selesai',
+            ]);
+            $disposisi = disposisisurat::create([
+                'nomor_suratM' => $suratmasuk->nomor_suratM,
+                'perihal_m' => $suratmasuk->perihal_m,
+                'nama_penerima' => $suratmasuk->nama_penerima,
+                'hari_m' => $suratmasuk->hari_m,
+                'tanggal_surat' => $suratmasuk->tanggal_surat,
+                'tempat' => $suratmasuk->tempat,
+                'acara' => $suratmasuk->acara,
+                'pakaian' => $suratmasuk->pakaian,
+                'catatan'=> $suratmasuk->catatan,
+            ]);
+            DB::commit();
+            if ($disposisi) {
+                return redirect()->route('disposisi_surat.index')->with('success', 'Surat berhasil diproses');
+            }
+            return redirect()->route('disposisi_surat.index')->with('failed', 'Surat gagal diproses');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('disposisi_surat.index')->with('failed', 'Surat gagal diproses');
+        }
 
-        disposisisurat::create($validated);
-        return redirect()->route('disposisi_surat.index')->with('success', 'nomor surat berhasil disimpan');
     }
 
     /**

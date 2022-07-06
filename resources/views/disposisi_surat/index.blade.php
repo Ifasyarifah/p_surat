@@ -12,8 +12,8 @@
                             <h3 class="card-title">Data Disposisi Surat</h3>
                             <div class="card-tools">
                                 @if ($a == '1')
-                                    <a href="{{ route('disposisi_surat.create') }}" type="button"
-                                        class="btn btn-danger btn-sm pull-right"><i class="fa fa-plus"></i> Create</a>
+                                    {{-- <a href="{{ route('disposisi_surat.create') }}" type="button"
+                                        class="btn btn-danger btn-sm pull-right"><i class="fa fa-plus"></i> Create</a> --}}
                                 @endif
                             </div>
                         </div>
@@ -22,13 +22,15 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Asal Surat</th>
-                                        <th>Tgl Diterima</th>
-                                        <th>No Agenda</th>
-                                        <th>Tgl Disposisi</th>
-                                        <th>Nomor Disposisi</th>
+                                        <th>Nomor Surat</th>
                                         <th>Perihal</th>
-                                        <th>Klarifikasi</th>
+                                        <th>Nama Penerima</th>
+                                        <th>Hari</th>
+                                        <th>Tanggal Surat</th>
+                                        <th>Tempat</th>
+                                        <th>Agenda</th>
+                                        <th>Pakaian</th>
+                                        <th>Catatan</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -58,26 +60,32 @@
                     data: 'DT_RowIndex',
                 },
                 {
-                    data: 'asal_surat',
-                },
-                {
-                    data: 'tanggal_diterima',
-                },
-                {
-                    data: 'nomor_agenda',
-                },
-                {
-                    data: 'tanggal_d',
-                },
-                {
-                    data: 'nomor_disposisi',
-                },
-                {
-                    data: 'perihal',
-                },
-                {
-                    data: 'klarifikasi',
-                },
+                        data: 'nomor_suratM',
+                    },
+                    {
+                        data: 'perihal_m',
+                    },
+                    {
+                        data: 'nama_penerima',
+                    },
+                    {
+                        data: 'hari_m',
+                    },
+                    {
+                        data: 'tanggal_surat',
+                    },
+                    {
+                        data: 'tempat',
+                    },
+                    {
+                        data: 'acara',
+                    },
+                    {
+                        data: 'pakaian',
+                    },
+                    {
+                        data: 'catatan',
+                    },
                 {
                     data: 'action',
                 },
