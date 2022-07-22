@@ -9,8 +9,10 @@
 
 <body>
     <div class="container">
-        <h1>Laporan Data Surat Masuk sebanyak : {{$count}}</h1>
-        <table class="table table-bordered">
+<center>
+        <h3>Laporan Data Surat Masuk sebanyak : {{$count}}</h3>
+</center>
+        <table class="table table-bordered border-primary">
             <tr>
                 <th>#</th>
                 <th>Nomor Surat</th>

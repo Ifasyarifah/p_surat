@@ -42,23 +42,22 @@
         </tr>
     </table>
     <table border="1" style="width: 100%;border-collapse: collapse;">
-        <tr style="height:50px;">
-            <td colspan="2">Surat Dari : Komisi Informasi Pusat RI
+        <font size="3" style="margin-left:500px;">Sumenep, <?php echo $data['tanggal_surat']; ?></font>
+        <tr>
+            <td style="width:50%;">Perihal : <?php echo $data['perihal_m']; ?></td>
+            <td style="width:50%;">Nama penerima : <?php echo $data['nama_penerima']; ?></td>
         </tr>
         <tr>
-            <td style="width:50%;">Asal Surat : <?php echo $data['asal_surat']; ?></td>
-            <td style="width:50%;">Tanggal Diterima : <?php echo $data['tanggal_diterima']; ?></td>
+            <td style="width:50%;">Hari : <?php echo $data['hari_m']; ?></td>
+            <td style="width:50%;">Lokasi : <?php echo $data['tempat']; ?></td>
         </tr>
         <tr>
-            <td style="width:50%;">Nomor Agenda : <?php echo $data['nomor_agenda']; ?></td>
-            <td style="width:50%;">Tanggal Disposisi : <?php echo $data['tanggal_d']; ?></td>
+            <td style="width:50%;">Pakaian : <?php echo $data['pakaian']; ?></td>
+            <td style="width:50%;">Catatan : <?php echo $data['catatan']; ?></td>
         </tr>
-        <tr style="height:50px;">
-            <td colspan="2">Perihal : <?php echo $data['perihal']; ?></td>
-        </tr>
-        <tr style="height:50px;">
+        {{-- <tr style="height:50px;">
             <td colspan="2">Klarifikasi Surat : <?php echo $data['klarifikasi']; ?></td>
-        </tr>
+        </tr> --}}
     </table>
     {{-- <div class="row">
         <div style="width:20%;float:left;">

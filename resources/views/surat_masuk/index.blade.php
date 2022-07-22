@@ -9,18 +9,29 @@
                     <?php $a = auth::user()->isAdmin; ?>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Surat Masuk</h3>
-                            <div class="card-tools">
-                                @if ($a == '1')
+                            <h4 class="card-title">Data Surat Masuk</h4> <br>
+                            <div class="row mt-3">
+                                <div class="col-4">
                                     <form action="{{ route('generatePDF') }}" method="POST">
                                         @csrf
-                                        <input style="margin-right:500px;" type="date" name="start_date" placeholder="Start Date" class="form-control"> To
-                                        <input type="date" name="end_date" placeholder="End Date" class="form-control">
-
-                                        <input type="submit" class="btn btn-primary" value="Cetak">
+                                        <label for="start_date">Start Date</label>
+                                        <input type="date" name="start_date" id="start_date" class="form-control"
+                                            placeholder="Start Date" aria-label="Start Date">
+                                </div>
+                                <div class="col-4">
+                                    <label for="end_date">End Date</label>
+                                    <input type="date" name="end_date" class="form-control" placeholder="End Date"
+                                        aria-label="End Date">
+                                </div>
+                                <div class="col mt-4" style="margin-top: 30px !important;">
+                                    <input type="submit" class="btn btn-primary" value="Cetak">
                                     </form>
-                                    <a href="{{ route('surat_masuk.create') }}" type="button"
-                                        class="btn btn-danger btn-sm pull-right"><i class="fa fa-plus"></i> Create</a>
+                                    <a href="{{ route('surat_masuk.create') }}" class="btn btn-danger"><span><i
+                                                class="fa fa-plus"></i></span> Create</a>
+                                </div>
+                            </div>
+                            <div class="card-tools">
+                                @if ($a == '1')
                                 @endif
                             </div>
                         </div>
@@ -118,7 +129,6 @@
                 }
             }
         </script>
-
     @endpush
     </script>
 @endsection

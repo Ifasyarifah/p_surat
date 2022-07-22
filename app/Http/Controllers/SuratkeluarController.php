@@ -63,9 +63,9 @@ class SuratkeluarController extends Controller
                     ->addColumn('agenda', function($row){
                         return $row->agenda;
                     })
-                    // ->addColumn('catatan', function($row){
-                    //     return $row->catatan;
-                    // })
+                    ->addColumn('catatan', function($row){
+                        return $row->catatan;
+                    })
                     ->addColumn('TTD', function($row){
                         return '<img src="'.asset('storage/doc/surat_keluar/'.$row->TTD).'" width="100px"/>';
                     })
@@ -75,8 +75,8 @@ class SuratkeluarController extends Controller
                         $button .= '&nbsp;&nbsp;';
                         $button .= '<a href="'.route('surat_keluar.print',$row->id).'" class="btn btn-circle btn-secondary btn-small"><i class="fa fa-print"></i></a>';
 
-                        $button .= '&nbsp;&nbsp;';
-                        $button .= '<a href="javascrip:void(0)" onclick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+                        // $button .= '&nbsp;&nbsp;';
+                        // $button .= '<a href="javascrip:void(0)" oncplick="confirmForm(this)" data-id="'.$row->id.'" data-name="'.$row->name.'" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
 
                         return $button;
                     })

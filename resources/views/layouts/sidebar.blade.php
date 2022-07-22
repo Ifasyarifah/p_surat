@@ -56,7 +56,7 @@
                      <a href="{{ route('disposisi_surat.index') }}" class="nav-link">
                          <i class="nav-icon fas fa-copy"></i>
                          <p>
-                             Disposisi Surat
+                             Data Disposisi Surat
                          </p>
                      </a>
                  </li>
